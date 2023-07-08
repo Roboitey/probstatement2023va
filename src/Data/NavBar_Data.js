@@ -15,10 +15,6 @@ const Nav_Items = [
     title: "Admin",
     Link: "/admin",
   },
-  {
-    title: "Auth",
-    Link: "/auth", 
-  }
 ];
 
 export default Nav_Items;
