@@ -1,0 +1,77 @@
+html{
+  --Primary-color: #284dd2;
+  --Secondary-color: #3e5bc1;
+  --Third-color: #4d5f9d;
+  --CTA-1: #08102b;
+  --CTA-2: #393e51;
+}
+
+.sec-1 {
+  margin: auto;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+  height: 35rem;
+}
+.f-s{
+  width: 99%;
+  height: auto;
+  margin-top: 3px;
+  margin-left: 10px;
+}
+.cont-t {
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+.cont-t > h1 > span {
+  font-weight: 500;
+  line-height: 100%;
+  font-size: 60px;
+  font-family: Recoleta, Georgia, "Times New Roman", Times, serif;
+  color: var(--CTA-1);
+  line-height:90%;
+  letter-spacing: -1.6px;
+}
+.cont-c {
+  width: 45%;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: -25px;
+  font-weight: 400;
+  font-size: 20px;
+  font-style: normal;
+  font-family: "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell",
+    "Helvetica Neue", sans-serif;
+  padding: 10px;
+  color: var(--CTA-2);
+  line-height: 1.2;
+}
+.cont-b {
+  margin: 10px;
+  margin-left: 15px;
+}
+.cont-b > button {
+  background-color: var(--Secondary-color);
+  border: solid 1px var(--Third-color);
+  color: #fff;
+  outline: 2px solid transparent;
+  width: 150px;
+  outline: none;
+  font-size: 17px;
+  padding: 15px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.cont-b > button:hover {
+  opacity: 0.95;
+}
+.cont-b > button:focus{
+  outline: 2px solid black;
+}

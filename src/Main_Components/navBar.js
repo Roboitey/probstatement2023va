@@ -1,14 +1,13 @@
 import React from "react";
 import "../Styles/NavBar.css";
 import Nav_Items from "../Data/NavBar_Data";
-import { useNavigate } from "react-router-dom";
 
 function NavBar() {
   return (
     <>
       <div className="navbar-container">
         <div className="logo">
-          <a>
+          <a href="/">
             <div />
             <h1>inBDPA</h1>
           </a>
@@ -36,7 +35,7 @@ function NavBar() {
             <button className="btn-login">Login</button>
           </a>
           <a href="/sign-up">
-            <button className="btn-signUp">Login</button>
+            <button className="btn-signUp">Sign up</button>
           </a>
         </div>
       </div>
