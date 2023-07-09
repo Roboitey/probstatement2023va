@@ -7,15 +7,15 @@ function Section_1() {
             <div className='f-s'>
                 <div className='cont-t'>
                     <h1>
-                        <span>Welcome to the world’s </span><br />
-                        <span>most popular website builder.</span>
+                        <span>Start your </span><br />
+                        <span>Professional Reputation.</span>
                     </h1>
                 </div>
                 <div className='cont-c'>
-                    <p>43% of the web is built on WordPress. More bloggers, small businesses, and Fortune 500 companies use WordPress than all other options combined. Join the millions of people that call WordPress.com home.</p>
+                    <p>Welcome to your professional community, where you get to know other professionals in various jobs and career paths. Start Now, this could be your first steps to be a well known professional.</p>
                 </div>
                 <div className='cont-b'>
-                    <button >Get Started</button>
+                    <button >Learn more</button>
                 </div>
             </div>
         </section>
