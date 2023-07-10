@@ -4,6 +4,7 @@ html{
     --Third-color: #4d5f9d;
     --CTA-1: #08102b;
     --CTA-2: #393e51;
+    overflow-x: hidden;
 }
 
 .navbar-container{
@@ -18,7 +19,7 @@ html{
 .navbar-container > .logo{
     width: 200px;
     height: 95%;
-    margin-left: 30px;
+    margin-left: 80px;
 }
 .logo > a{
     width: 100%;
