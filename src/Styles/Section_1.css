@@ -80,11 +80,11 @@ html{
   outline: 2px solid black;
 }
 .right-img{
-  width: 750px;
-  height: 500px;
+  width:700px;
+  height: 560px;
   position: absolute;
-  top: -2pc;
-  left:70%;
+  top: 6pc;
+  left:75%;
   transform: translateX(-50%);
 }
 .right-img > div{
@@ -94,4 +94,5 @@ html{
   background-position: center;
   background-size: cover;
   object-fit: cover;
+  margin-top: -10pc;
 }

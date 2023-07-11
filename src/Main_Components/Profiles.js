@@ -10,7 +10,7 @@ function Profiles() {
       setUser(profile["user"])
     );
   }, []);
- // return <div>Profiles{user["username"]}</div>;
+  return <div>Profiles{user["username"]}</div>;
 }
 
 export default Profiles;
