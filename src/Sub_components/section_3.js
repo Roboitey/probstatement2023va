@@ -31,7 +31,7 @@ function Section_3() {
             </div>
           </div>
           <div className="rc-btn">
-            <button>Show More</button>
+            <button>Show More <ExpandLessIcon/></button>
           </div>
         </div>
       </section>
