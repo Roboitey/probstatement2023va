@@ -24,6 +24,7 @@ function Section_2() {
                     </div>
                     <ArrowForwardIosIcon
                       sx={{ stroke: "#E1EBEE", strokeWidth: 1 }}
+                      style={{marginRight: "15px"}}
                     />
                   </div>
                 );

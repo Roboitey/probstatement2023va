@@ -39,7 +39,7 @@ html{
 .fp-cont-title > p{
     font-size: 55px;
     font-weight: bold;
-    color: var(--CTA-1);
+    color: #0E3386;
 }
 .fp-cont > .fp-cont-desc{
     width: 100%;
@@ -63,10 +63,10 @@ html{
     gap: 20px;
 }
 .fp-cont-sugg > .fp-cont-sugg-card{
-    width: 67%;
+    width: 72%;
     height: 62px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #E1EBEE;
     border-radius: 5px;
@@ -78,7 +78,7 @@ html{
 
 }
 .fp-cont-sugg-card-content{
-    text-align: start;
+    margin-left: 15px;
     width: 270px;
 }
 .fp-cont-sugg-card-content > p{
