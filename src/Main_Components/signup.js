@@ -1,6 +1,7 @@
 import { Email } from "@mui/icons-material";
 import React from "react";
 import { useState } from "react";
+import { SignUpSystem } from "../services/LoginService";
 import "../Styles/Login.css";
 
 function SignUp() {
@@ -18,7 +19,7 @@ function SignUp() {
     if (isCaptchaValid) {
       // Perform Sign up logic here
       console.log("Correct captcha");
-      //   SignUpSystem(username, Email, password);
+      SignUpSystem(username, Email, password);
     } else {
       console.log("Invalid captcha");
     }

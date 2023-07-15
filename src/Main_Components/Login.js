@@ -10,9 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [captcha, setCaptcha] = useState("");
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
-  const [captchaImgVIsibility, setCaptchaImgVisibility] = useState(false);
   const [passwordType, setPasswordType] = useState(false);
-  const captchaImage = "images/Captcha.png"; // Replace with the actual captcha image URL
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -83,39 +81,6 @@ function Login() {
           />
         )}
       </div>
-
-      <div className="fl-cont">
-        <label htmlFor="captcha" className="fl-label">
-          Captcha:
-        </label>
-        <input
-          type="text"
-          id="captcha"
-          className="fl-input"
-          value={captcha}
-          onChange={handleCaptchaChange}
-          onBlur={handleCaptchaBlur}
-          placeholder="Captcha"
-        />
-      </div>
-
-      <div className="captcha-btn">
-        <button
-          type="button"
-          onClick={() => {
-            setCaptchaImgVisibility(!captchaImgVIsibility);
-          }}
-        >
-          Show Captcha
-        </button>
-      </div>
-
-      {captchaImgVIsibility && (
-        <div className="captcha-img">
-          <img src={captchaImage} alt="Captcha" />
-        </div>
-      )}
-
       <button type="submit" className="submit-btn">
         Login
       </button>
