@@ -111,7 +111,7 @@ function SignUp() {
       )}
 
       <button type="submit" className="submit-btn">
-        Login
+        Sign Up
       </button>
     </form>
   );
