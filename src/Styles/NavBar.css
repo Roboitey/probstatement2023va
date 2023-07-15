@@ -1,152 +1,153 @@
-html{
-    --Primary-color: #284dd2;
-    --Secondary-color: #3e5bc1;
-    --Third-color: #4d5f9d;
-    --CTA-1: #08102b;
-    --CTA-2: #393e51;
-    overflow-x: hidden;
+html {
+  --Primary-color: #284dd2;
+  --Secondary-color: #3e5bc1;
+  --Third-color: #4d5f9d;
+  --CTA-1: #08102b;
+  --CTA-2: #393e51;
+  overflow-x: hidden;
 }
 
-.navbar-container{
-    width: 100%;
-    height: 80px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(5px);
+.navbar-container {
+  width: 90%;
+  height: 80px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  margin-left: 150px;
 }
-.navbar-container > .logo{
-    width: 200px;
-    height: 95%;
-    margin-left: 175px;
+.navbar-container > .logo {
+  width: 200px;
+  height: 95%;
 }
-.logo > a{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: none;
+.logo > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
 }
-.logo > a:hover{
-    cursor: pointer;
+.logo > a:hover {
+  cursor: pointer;
 }
-.logo > a > div{
-    width: 100%;
-    height: 100%;
-    background-image: url(../Images/BDPA_logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    object-fit: contain; 
+.logo > a > div {
+  width: 100%;
+  height: 100%;
+  background-image: url(../Images/BDPA_logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  object-fit: contain;
 }
-.logo > a > h1{
-    font-size: 42px;
-    color: var(--CTA-1);
+.logo > a > h1 {
+  font-size: 42px;
+  color: var(--CTA-1);
+  text-shadow: none;
 }
-.navbar-container > nav{
-    width: 50%;
+.navbar-container > nav {
+  width: 50%;
 }
-.navbar-container > nav > ul{
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
+.navbar-container > nav > ul {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
 }
-.navbar-container > nav > ul > li{
-    list-style-type: none;
-    list-style: none;
+.navbar-container > nav > ul > li {
+  list-style-type: none;
+  list-style: none;
 }
-.navbar-container > nav > ul > li > a{
-    color: var(--CTA-1);
-    font-size: 26px;
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: all 0.4s ease;
-    padding: 2px;
-    padding-bottom: 5px;
-    outline: 2px solid transparent;
-    border-radius: 2px;
-    text-shadow: none;
+.navbar-container > nav > ul > li > a {
+  color: var(--CTA-1);
+  font-size: 26px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  padding: 2px;
+  padding-bottom: 5px;
+  outline: 2px solid transparent;
+  border-radius: 2px;
+  text-shadow: none;
 }
-.navbar-container > nav > ul > li > a:hover{
-    cursor: pointer;
-    color: var(--Secondary-color);
+.navbar-container > nav > ul > li > a:hover {
+  cursor: pointer;
+  color: var(--Secondary-color);
 }
-.navbar-container > nav > ul> li > a:focus{
-    outline: 2px solid var(--CTA-2);
-} 
-.navbar-container > nav > ul > li > a.active{
-    color: var(--Primary-color);
-    border-bottom: 2px solid var(--Third-color);
-    border-bottom-width: 3px;
-    outline: 2px solid transparent;
-    border-radius: 2px;
+.navbar-container > nav > ul > li > a:focus {
+  outline: 2px solid var(--CTA-2);
 }
-.navbar-container > nav > ul > li > a.active:hover{
-    outline: 2px solid var(--Third-color);
+.navbar-container > nav > ul > li > a.active {
+  color: var(--Primary-color);
+  border-bottom: 2px solid var(--Third-color);
+  border-bottom-width: 3px;
+  outline: 2px solid transparent;
+  border-radius: 2px;
 }
-.navbar-container > nav > ul > li > a.active:focus{
-    outline: 2px solid var(--Primary-color);
+.navbar-container > nav > ul > li > a.active:hover {
+  outline: 2px solid var(--Third-color);
 }
-.navbar-container > .app-title{
-    width: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-right: 25px;
+.navbar-container > nav > ul > li > a.active:focus {
+  outline: 2px solid var(--Primary-color);
 }
-.app-title > h1{
-    font-size: 42px;
-    color: var(--CTA-1);
+.navbar-container > .app-title {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 25px;
 }
-.btn-logins{
-    width: 250px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: center;
+.app-title > h1 {
+  font-size: 42px;
+  color: var(--CTA-1);
 }
-.btn-logins > a{
-    outline: none;
+.btn-logins {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.btn-logins > a > .btn-login{
-    width: 100px;
-    height: 50px;
-    border-radius: 25px;
-    border: 2px solid transparent;
-    outline: 2px solid transparent;
-    color: var(--CTA-1);
-    font-size: 20px;
-    transition:  all 0.2s ;
-    background: none;
+.btn-logins > a {
+  outline: none;
 }
-.btn-logins > a > .btn-login:focus{
-    outline: 2px solid var(--CTA-1);
+.btn-logins > a > .btn-login {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+  color: var(--CTA-1);
+  font-size: 20px;
+  transition: all 0.2s;
+  background: none;
 }
-.btn-logins > a > .btn-login:hover{
-    cursor: pointer;
-    border: 2px solid #4d5f9d;
+.btn-logins > a > .btn-login:focus {
+  outline: 2px solid var(--CTA-1);
 }
-.btn-logins > a > .btn-signUp{
-    width: 100px;
-    height: 50px;
-    border-radius: 25px;
-    border: 2px solid transparent;
-    color: white;
-    font-size: 20px;
-    transition: all 0.5s ease;
-    background: var(--Primary-color);
+.btn-logins > a > .btn-login:hover {
+  cursor: pointer;
+  border: 2px solid #4d5f9d;
 }
-.btn-logins > a > .btn-signUp:hover{
-    cursor: pointer;
-    background: var(--Third-color);
+.btn-logins > a > .btn-signUp {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  color: white;
+  font-size: 20px;
+  transition: all 0.5s ease;
+  background: var(--Primary-color);
+}
+.btn-logins > a > .btn-signUp:hover {
+  cursor: pointer;
+  background: var(--Third-color);
 }

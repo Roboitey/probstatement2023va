@@ -1,4 +1,4 @@
-html{
+html {
   --Primary-color: #284dd2;
   --Secondary-color: #3e5bc1;
   --Third-color: #4d5f9d;
@@ -15,13 +15,12 @@ html{
   margin-top: 70px;
   width: 100%;
   height: 35rem;
-  margin-left: 14w0px;
 }
-.f-s{
+.f-s {
   width: 99%;
   height: auto;
   margin-top: 3px;
-  margin-left: 150px;
+  margin-left: 130px;
 }
 .cont-t {
   padding: 10px;
@@ -36,7 +35,7 @@ html{
   font-size: 60px;
   font-family: Recoleta, Georgia, "Times New Roman", Times, serif;
   color: var(--CTA-1);
-  line-height:90%;
+  line-height: 90%;
   letter-spacing: -1.6px;
   text-shadow: none;
 }
@@ -55,7 +54,7 @@ html{
   color: var(--CTA-2);
   line-height: 1.2;
 }
-.cont-c > p{
+.cont-c > p {
   text-shadow: none;
   color: var(--CTA-2);
   line-height: 1.2;
@@ -85,18 +84,18 @@ html{
   opacity: 0.95;
   cursor: pointer;
 }
-.cont-b > button:focus{
+.cont-b > button:focus {
   outline: 2px solid black;
 }
-.right-img{
-  width:700px;
+.right-img {
+  width: 700px;
   height: 560px;
   position: absolute;
   top: 6pc;
-  left:75%;
+  left: 75%;
   transform: translateX(-50%);
 }
-.right-img > div{
+.right-img > div {
   width: 100%;
   height: 100%;
   background-image: url(../Images/or1.png);

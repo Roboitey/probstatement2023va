@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Styles/Section_3.css";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Rc_lst from "../Data/Rc_lst_data";
 
 function Section_3() {
+  const [expand, setExpand] = useState(false);
   return (
     <>
-      <section id="sec3">
+      <section className={expand ? "sec3-e" : "sec3-n"}>
         <div className="left-title">
           <p>Find the right job or internship for you</p>
         </div>
@@ -14,25 +16,21 @@ function Section_3() {
           <div className="rc-title">
             <p>SUGGESTED SEARCHES</p>
           </div>
-          <div className="rc-lst">
+          <div className={expand ? "rc-lst-e" : "rc-lst-n"}>
             <div className="rc-lst-ul">
-              <div>Finance</div>
-              <div>Business Development</div>
-              <div>Engineering</div>
-              <div>Administrative Assistant</div>
-              <div>Retail Associate</div>
-              <div>Customer Service</div>
-              <div>Operations</div>
-              <div>Information Technology</div>
-              <div>Marketing</div>
-              <div>Customer Service</div>
-              <div>Human Resources</div>
-              <div>Military and Protective Services</div>
+              {Rc_lst.map((Item, key) => {
+                return <div key={key}>{Item}</div>;
+              })}
             </div>
           </div>
           <div className="rc-btn">
-            <button>
-              Show More <ExpandLessIcon />
+            <button
+              onClick={() => {
+                setExpand(!expand);
+              }}
+            >
+              Show {expand ? "less" : "more"}
+              {expand ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </button>
           </div>
         </div>
