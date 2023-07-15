@@ -18,7 +18,7 @@ function SignUp() {
     if (isCaptchaValid) {
       // Perform Sign up logic here
       console.log("Correct captcha");
-    //   SignUpSystem(username, Email, password);
+      //   SignUpSystem(username, Email, password);
     } else {
       console.log("Invalid captcha");
     }
@@ -62,7 +62,6 @@ function SignUp() {
           value={Email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Email"
-
         />
       </div>
       <div className="fl-cont">
@@ -111,8 +110,8 @@ function SignUp() {
         </div>
       )}
 
-      <button type="submit" className="btn btn-primary">
-        Sign Up
+      <button type="submit" className="submit-btn">
+        Login
       </button>
     </form>
   );
