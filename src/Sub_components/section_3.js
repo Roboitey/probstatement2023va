@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/Section_3.css";
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function Section_3() {
   return (
@@ -31,7 +31,9 @@ function Section_3() {
             </div>
           </div>
           <div className="rc-btn">
-            <button>Show More <ExpandLessIcon/></button>
+            <button>
+              Show More <ExpandLessIcon />
+            </button>
           </div>
         </div>
       </section>

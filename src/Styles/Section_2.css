@@ -30,7 +30,7 @@ html{
     height: 450px;
 }
 .fp-cont > .fp-cont-title{
-    width: 100%;
+    width: 104%;
     height: 40px;
     display: flex;
     align-items: center;
@@ -40,6 +40,7 @@ html{
     font-size: 55px;
     font-weight: bold;
     color: #0E3386;
+    text-shadow: none;
 }
 .fp-cont > .fp-cont-desc{
     width: 100%;
@@ -52,6 +53,8 @@ html{
     font-size: 40px;
     font-weight: 100;
     line-height: 1.2;
+    text-shadow: none;
+    color: var(--CTA-1);
 }
 .fp-cont > .fp-cont-sugg{
     width: 100%;
@@ -79,11 +82,14 @@ html{
 }
 .fp-cont-sugg-card-content{
     margin-left: 15px;
-    width: 270px;
+    width: 290px;
 }
 .fp-cont-sugg-card-content > p{
     font-size: 22px;
-
+    text-decoration: none;
+    text-shadow: none;
+    color: var(--CTA-1);
+    margin-top: 14px;
 }
 .second-part{
     width: 50%;
