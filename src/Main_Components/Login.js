@@ -119,6 +119,12 @@ function Login() {
       <button type="submit" className="submit-btn">
         Login
       </button>
+
+      <div>
+        <a type="button" className="forgo-pass" href="/forget-pass">
+            Forgot Password?
+        </a>
+      </div>
     </form>
   );
 }
