@@ -7,7 +7,7 @@ html {
 }
 .sec3-n {
   width: 100%;
-  height: 35rem;
+  height: 30rem;
   transition: all 0.2s;
 }
 .sec3-e {
@@ -56,7 +56,7 @@ html {
 }
 .rc-lst-n {
   width: 100%;
-  height: 46%;
+  height: 54%;
   overflow: hidden;
   padding-top: 3px;
   margin-top: -20px;

@@ -1,5 +1,4 @@
 import "./App.css";
-import NavBar from "./Main_Components/navBar";
 import Home from "./Main_Components/Home";
 import Profiles from "./Main_Components/Profiles";
 import Opportunity from "./Main_Components/Opportunity";
@@ -22,9 +21,6 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      {/* <Profiles /> */}
-      {/* <Home /> */}
-      {/* <Opportunity /> */}
     </>
   );
 }
