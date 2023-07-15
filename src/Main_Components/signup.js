@@ -1,6 +1,7 @@
 import { Email } from "@mui/icons-material";
 import React from "react";
 import { useState } from "react";
+import "../Styles/Login.css";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -34,58 +35,58 @@ function SignUp() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-Sign Up">
+    <form onSubmit={handleSubmit} className="form-login">
       <h1 className="fl-title">Sign Up Form</h1>
-      <div className="fl-username">
-        <label htmlFor="username" className="fl-username-label">
+      <div className="fl-cont">
+        <label htmlFor="username" className="fl-label">
           Username:
         </label>
         <input
           type="text"
           id="username"
-          className="fl-username-input"
+          className="fl-input"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
           placeholder="Username"
         />
       </div>
 
-      <div className="fl-Email">
-        <label htmlFor="Email" className="fl-Email-label">
+      <div className="fl-cont">
+        <label htmlFor="Email" className="fl-label">
           Email:
         </label>
         <input
           type="Email"
           id="Email"
-          className="fl-Email-input"
+          className="fl-input"
           value={Email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Email"
 
         />
       </div>
-      <div className="fl-password">
-        <label htmlFor="password" className="fl-password-label">
+      <div className="fl-cont">
+        <label htmlFor="password" className="fl-label">
           Password:
         </label>
         <input
           type="password"
           id="password"
-          className="fl-password-input"
+          className="fl-input"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
         />
       </div>
 
-      <div className="fl-captcha">
-        <label htmlFor="captcha" className="fl-captcha-label">
+      <div className="fl-cont">
+        <label htmlFor="captcha" className="fl-label">
           Captcha:
         </label>
         <input
           type="text"
           id="captcha"
-          className="fl-captcha-input"
+          className="fl-input"
           value={captcha}
           onChange={handleCaptchaChange}
           onBlur={handleCaptchaBlur}
