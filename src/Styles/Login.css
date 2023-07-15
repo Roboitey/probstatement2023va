@@ -1,0 +1,17 @@
+html {
+    --Primary-color: #284dd2;
+    --Secondary-color: #3e5bc1;
+    --Third-color: #4d5f9d;
+    --CTA-1: #08102b;
+    --CTA-2: #393e51;
+}
+.form-login{
+    margin: auto;
+    border: 1px solid black;
+    width: 89%;
+    height: 30pc;
+    margin-top: 2pc;
+    margin-left: 10pc;
+    display: flex;
+    flex-flow: column;
+}
