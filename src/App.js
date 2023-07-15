@@ -22,6 +22,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path="*" element={<NotFound/>}/>
             <Route path="/forget-pass" element={<ForgotPassword/>}/>
+            <Route path="/profile" element={<Profiles/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
