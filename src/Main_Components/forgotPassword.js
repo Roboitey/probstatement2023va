@@ -15,6 +15,7 @@ function ForgotPassword() {
         setError("password does not match")
       } else{
         console.log('Password changed');
+        setError("")
       }
     } else {
       console.log("Recovery email has been sent to " + email);
