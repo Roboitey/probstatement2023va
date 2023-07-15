@@ -37,7 +37,7 @@ function SignUp() {
 
   return (
     <form onSubmit={handleSubmit} className="form-login">
-      <h1 className="fl-title">Sign Up Form</h1>
+      <h1 className="fl-title">Sign Up to our Site!</h1>
       <div className="fl-cont">
         <label htmlFor="username" className="fl-label">
           Username:
