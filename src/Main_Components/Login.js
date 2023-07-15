@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { LoginSystem } from "../services/LoginService";
-import "../Styles/Login.css"
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import "../Styles/Login.css";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -9,6 +11,7 @@ function Login() {
   const [captcha, setCaptcha] = useState("");
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [captchaImgVIsibility, setCaptchaImgVisibility] = useState(false);
+  const [passwordType, setPasswordType] = useState(false);
   const captchaImage = "images/Captcha.png"; // Replace with the actual captcha image URL
 
   const handleSubmit = (event) => {
@@ -50,18 +53,35 @@ function Login() {
         />
       </div>
 
-      <div className="fl-cont">
+      <div className="fl-cont-pass">
         <label htmlFor="password" className="fl-label">
           Password:
         </label>
         <input
-          type="password"
+          type={passwordType ? "text" : "password"}
           id="password"
           className="fl-input"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
         />
+        {passwordType ? (
+          <VisibilityOffIcon
+            className="visibility-icon"
+            fontSize="medium"
+            onClick={() => {
+              setPasswordType(!passwordType);
+            }}
+          />
+        ) : (
+          <VisibilityIcon
+            className="visibility-icon"
+            fontSize="medium"
+            onClick={() => {
+              setPasswordType(!passwordType);
+            }}
+          />
+        )}
       </div>
 
       <div className="fl-cont">
