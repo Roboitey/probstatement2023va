@@ -28,6 +28,13 @@ html {
     flex-flow: column nowrap;
     justify-content: center;
 }
+.fl-cont-pass{
+    width: 500px;
+    height: 60px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
 .fl-label{
     color: var(--CTA-1);
     font-size:21px;
@@ -109,4 +116,15 @@ html {
     border-radius: 10px;
     transition: all 0.4s;
     text-decoration: underline;
+}
+.visibility-icon{
+    margin-top: -29px;
+    margin-left: 460px;
+    transition: all 0.1s;
+    padding: 1px;
+    border: 1px solid transparent;
+}
+.visibility-icon:hover{
+    cursor: pointer;
+    border: 1px solid var(--CTA-1);
 }

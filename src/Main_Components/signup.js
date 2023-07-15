@@ -1,26 +1,23 @@
+import { Email } from "@mui/icons-material";
 import React from "react";
 import { useState } from "react";
-import { LoginSystem } from "../services/LoginService";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import "../Styles/Login.css";
 
-function Login() {
+function SignUp() {
   const [username, setUsername] = useState("");
+  const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [captcha, setCaptcha] = useState("");
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [captchaImgVIsibility, setCaptchaImgVisibility] = useState(false);
-  const [passwordType, setPasswordType] = useState(false);
   const captchaImage = "images/Captcha.png"; // Replace with the actual captcha image URL
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (isCaptchaValid) {
-      // Perform login logic here
+      // Perform Sign up logic here
       console.log("Correct captcha");
-      LoginSystem(username, password);
+    //   SignUpSystem(username, Email, password);
     } else {
       console.log("Invalid captcha");
     }
@@ -37,61 +34,58 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-login">
-      <h1 className="fl-title">Login Form</h1>
-      <div className="fl-cont">
-        <label htmlFor="username" className="fl-label">
+    <form onSubmit={handleSubmit} className="form-Sign Up">
+      <h1 className="fl-title">Sign Up Form</h1>
+      <div className="fl-username">
+        <label htmlFor="username" className="fl-username-label">
           Username:
         </label>
         <input
           type="text"
           id="username"
-          className="fl-input"
+          className="fl-username-input"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
           placeholder="Username"
         />
       </div>
 
-      <div className="fl-cont-pass">
-        <label htmlFor="password" className="fl-label">
+      <div className="fl-Email">
+        <label htmlFor="Email" className="fl-Email-label">
+          Email:
+        </label>
+        <input
+          type="Email"
+          id="Email"
+          className="fl-Email-input"
+          value={Email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="Email"
+
+        />
+      </div>
+      <div className="fl-password">
+        <label htmlFor="password" className="fl-password-label">
           Password:
         </label>
         <input
-          type={passwordType ? "text" : "password"}
+          type="password"
           id="password"
-          className="fl-input"
+          className="fl-password-input"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
         />
-        {passwordType ? (
-          <VisibilityOffIcon
-            className="visibility-icon"
-            fontSize="medium"
-            onClick={() => {
-              setPasswordType(!passwordType);
-            }}
-          />
-        ) : (
-          <VisibilityIcon
-            className="visibility-icon"
-            fontSize="medium"
-            onClick={() => {
-              setPasswordType(!passwordType);
-            }}
-          />
-        )}
       </div>
 
-      <div className="fl-cont">
-        <label htmlFor="captcha" className="fl-label">
+      <div className="fl-captcha">
+        <label htmlFor="captcha" className="fl-captcha-label">
           Captcha:
         </label>
         <input
           type="text"
           id="captcha"
-          className="fl-input"
+          className="fl-captcha-input"
           value={captcha}
           onChange={handleCaptchaChange}
           onBlur={handleCaptchaBlur}
@@ -116,16 +110,10 @@ function Login() {
         </div>
       )}
 
-      <button type="submit" className="submit-btn">
-        Login
+      <button type="submit" className="btn btn-primary">
+        Sign Up
       </button>
-
-      <div>
-        <a type="button" className="forgo-pass">
-            Forgot Password?
-        </a>
-      </div>
     </form>
   );
 }
-export default Login;
+export default SignUp;
