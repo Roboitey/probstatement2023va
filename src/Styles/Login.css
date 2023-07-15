@@ -82,3 +82,31 @@ html {
     border: 2px solid var(--Primary-color);
     color: black;
 }
+
+
+.forgo-pass{
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    border: 2px solid transparent;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: all 0.4s;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center; text-decoration: none;
+
+}
+
+.forgo-pass:hover{
+    color: white;
+    background-color: var(--CTA-2);
+    border: 2px solid transparent;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: all 0.4s;
+    text-decoration: underline;
+}
