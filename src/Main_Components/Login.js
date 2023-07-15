@@ -121,7 +121,7 @@ function Login() {
       </button>
 
       <div>
-        <a type="button" className="forgo-pass">
+        <a type="button" className="forgo-pass" href="/forget-pass">
             Forgot Password?
         </a>
       </div>
