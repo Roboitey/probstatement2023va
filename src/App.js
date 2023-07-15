@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Layout from "./Main_Components/Layout";
 import Login from "./Main_Components/Login";
 import NotFound from "./Main_Components/NotFound";
+import SignUp from "./Main_Components/signup";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/sign-up" element={<SignUp/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route index element={<Home/>}/>
             <Route path="*" element={<NotFound/>}/>
