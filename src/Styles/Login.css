@@ -1,130 +1,129 @@
 html {
-    --Primary-color: #284dd2;
-    --Secondary-color: #3e5bc1;
-    --Third-color: #4d5f9d;
-    --CTA-1: #08102b;
-    --CTA-2: #393e51;
+  --Primary-color: #284dd2;
+  --Secondary-color: #3e5bc1;
+  --Third-color: #4d5f9d;
+  --CTA-1: #08102b;
+  --CTA-2: #393e51;
 }
-.form-login{
-    margin: auto;
-    width: 89%;
-    height: 30pc;
-    margin-top: 2pc;
-    margin-left: 10pc;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: 5px;
+.form-login {
+  margin: auto;
+  width: 89%;
+  height: 30pc;
+  margin-top: 2pc;
+  margin-left: 10pc;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 5px;
 }
-.form-login > .fl-title{
-    color: var(--CTA-1);
-    font-size: 43px;
-    margin-top: 15px;
+.form-login > .fl-title {
+  color: var(--CTA-1);
+  font-size: 43px;
+  margin-top: 15px;
 }
-.form-login > .fl-cont{
-    width: 500px;
-    height: 65px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+.form-login > .fl-cont {
+  width: 500px;
+  height: 65px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
-.fl-cont-pass{
-    width: 500px;
-    height: 60px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+.fl-cont-pass {
+  width: 500px;
+  height: 60px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
-.fl-label{
-    color: var(--CTA-1);
-    font-size:21px;
+.fl-label {
+  color: var(--CTA-1);
+  font-size: 21px;
 }
-.fl-input{
-    border: 1px solid black;
-    height: 100%;
-    width: 100%;
-    padding: 2px;
-    outline: none;
-    border-radius: 5px;
-    background-color: transparent;
-    transition: all 0.4s ease;
+.fl-input {
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  padding: 2px;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.4s ease;
 }
- .fl-input:focus{
-    background-color: #F0F0F0;
+.fl-input:focus {
+  background-color: #f0f0f0;
 }
-.captcha-btn{
-    width: 140px;
-    height: 35px;
-    border-radius: 20px;
-    margin-top: 10px;
+.captcha-btn {
+  width: 140px;
+  height: 35px;
+  border-radius: 20px;
+  margin-top: 10px;
 }
-.captcha-btn > button{
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    border: 1px solid var(--CTA-2);
-    color: var(--CTA-1);
-    font-size: 18px;
-    text-align: center;
-    outline: none;
-    background-color: #F0F0F0;
-    transition: all 0.3s ease;
+.captcha-btn > button {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: 1px solid var(--CTA-2);
+  color: var(--CTA-1);
+  font-size: 18px;
+  text-align: center;
+  outline: none;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
 }
-.captcha-btn > button:hover{
-    background-color: #DEDEDE;
+.captcha-btn > button:hover {
+  background-color: #dedede;
 }
-.submit-btn{
-    width: 150px;
-    height: 40px;
-    background-color: var(--Primary-color);
-    color: white;
-    font-size: 22px;
-    border: 2px solid transparent;
-    margin-top: 10px;
-    border-radius: 10px;
-    transition: all 0.4s;
+.submit-btn {
+  width: 150px;
+  height: 40px;
+  background-color: var(--Primary-color);
+  color: white;
+  font-size: 22px;
+  border: 2px solid transparent;
+  margin-top: 10px;
+  border-radius: 10px;
+  transition: all 0.4s;
 }
-.submit-btn:hover{
-    background-color: transparent;
-    border: 2px solid var(--Primary-color);
-    color: black;
-}
-
-
-.forgo-pass{
-    width: 150px;
-    height: 30px;
-    background-color: white;
-    color: rgb(0, 0, 0);
-    font-size: 17px;
-    border: 2px solid transparent;
-    margin-top: 10px;
-    border-radius: 10px;
-    transition: all 0.4s;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center; text-decoration: none;
-
+.submit-btn:hover {
+  background-color: transparent;
+  border: 2px solid var(--Primary-color);
+  color: black;
 }
 
-.forgo-pass:hover{
-    color: white;
-    background-color: var(--CTA-2);
-    border: 2px solid transparent;
-    margin-top: 10px;
-    border-radius: 10px;
-    transition: all 0.4s;
-    text-decoration: underline;
+.forgo-pass {
+  width: 150px;
+  height: 30px;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  border: 2px solid transparent;
+  margin-top: 10px;
+  border-radius: 10px;
+  transition: all 0.4s;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
-.visibility-icon{
-    margin-top: -29px;
-    margin-left: 460px;
-    transition: all 0.1s;
-    padding: 1px;
-    border: 1px solid transparent;
+
+.forgo-pass:hover {
+  color: white;
+  background-color: var(--CTA-2);
+  border: 2px solid transparent;
+  margin-top: 10px;
+  border-radius: 10px;
+  transition: all 0.4s;
+  text-decoration: underline;
 }
-.visibility-icon:hover{
-    cursor: pointer;
-    border: 1px solid var(--CTA-1);
+.visibility-icon {
+  margin-top: -29px;
+  margin-left: 460px;
+  transition: all 0.1s;
+  padding: 1px;
+  border: 1px solid transparent;
+}
+.visibility-icon:hover {
+  cursor: pointer;
+  border: 1px solid var(--CTA-1);
 }

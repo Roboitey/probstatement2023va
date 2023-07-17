@@ -23,7 +23,7 @@ html {
   color: var(--CTA-1);
   margin: 10px 0;
 }
-.nf-cont-description > a{
+.nf-cont-description > a {
   color: var(--CTA-2);
   text-decoration: underline;
   font-weight: bold;

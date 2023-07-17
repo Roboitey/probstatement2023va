@@ -2,6 +2,7 @@ import React from "react";
 import Section_1 from "../Sub_components/section_1";
 import Section_2 from "../Sub_components/section_2";
 import Section_3 from "../Sub_components/section_3";
+import Footer from "../Sub_components/footer";
 
 function Home() {
   return (
