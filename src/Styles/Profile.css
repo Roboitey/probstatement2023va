@@ -1,0 +1,63 @@
+html {
+  --Primary-color: #284dd2;
+  --Secondary-color: #3e5bc1;
+  --Third-color: #4d5f9d;
+  --CTA-1: #08102b;
+  --CTA-2: #393e51;
+}
+.profile-section-container {
+  width: 98.5%;
+  height: 55vw;
+}
+.profile-section-container > .ps-profile-card {
+  width: 50%;
+  height: 50pc;
+  border: 1px solid red;
+  margin-top: 10px;
+  margin-left: 155px;
+}
+.ps-profile-card > .pc-back-img {
+  width: 100%;
+  height: 150px;
+  background-image: url("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  object-fit: contain;
+}
+.ps-profile-card > .pc-profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 8px solid white;
+  background-image: url("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  margin-top: -70px;
+  margin-left: 40px;
+}
+.pc-edit {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  border: 1px solid transparent;
+  justify-content: center;
+  align-items: center;
+  top: 15.5pc;
+  left: 53pc;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.pc-edit > .edit-icon {
+  padding: 2px;
+}
+.pc-edit:hover {
+  background-color: #e7e7e7;
+  border: 1px solid var(--CTA-1);
+}
+.pc-information {
+}

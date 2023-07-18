@@ -3,6 +3,7 @@ import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutl
 import { getProfile } from "../services/profileService";
 import { useEffect } from "react";
 import { useState } from "react";
+import "../Styles/Profile.css";
 
 function Profiles() {
   const [user, setUser] = useState({});
@@ -13,12 +14,12 @@ function Profiles() {
   }, []);
   return (
     <>
-      <div className="profile-section-container">
+      <section className="profile-section-container">
         <div className="ps-profile-card">
-          <img className="pc-back-img" src="#" alt="Not Found" />
-          <img className="pc-profile-img" src="#" alt="Not Found" />
+          <div className="pc-back-img"/>
+          <div className="pc-profile-img"/>
           <div className="pc-edit">
-            <ModeEditOutlineOutlinedIcon />
+            <ModeEditOutlineOutlinedIcon fontSize="large" className="edit-icon"/>
           </div>
           <div className="pc-information">
             <div className="pc-info-name">
@@ -37,7 +38,7 @@ function Profiles() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       {/*<div>Profiles {user["user_id"]}</div>
       <div>Profile type: {user["type"]}</div>
       <div>Profile about: {user.sections?.about}</div>
