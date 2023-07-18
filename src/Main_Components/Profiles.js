@@ -16,25 +16,30 @@ function Profiles() {
     <>
       <section className="profile-section-container">
         <div className="ps-profile-card">
-          <div className="pc-back-img"/>
-          <div className="pc-profile-img"/>
+          <div className="pc-back-img" />
+          <div className="pc-profile-img" />
           <div className="pc-edit">
-            <ModeEditOutlineOutlinedIcon fontSize="large" className="edit-icon"/>
+            <ModeEditOutlineOutlinedIcon
+              fontSize="large"
+              className="edit-icon"
+            />
           </div>
           <div className="pc-information">
             <div className="pc-info-name">
               <h1>{user["username"]}</h1>
             </div>
-            <div className="pc-info-email/type">
+            <div className="pc-info-email_type">
               <div className="pc-info-email">
-                <p>Email Address: {user["email"]}</p>
+                <p>
+                  Email Address: <strong>{user["email"]}</strong>
+                </p>
               </div>
               <div className="pc-info-type">
                 <p>{user["type"]}</p>
               </div>
             </div>
             <div className="pc-info-views">
-              <p>{user["views"]}</p>
+              <p>Views: {user["views"]}</p>
             </div>
           </div>
         </div>

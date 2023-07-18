@@ -11,10 +11,11 @@ html {
 }
 .profile-section-container > .ps-profile-card {
   width: 50%;
-  height: 50pc;
-  border: 1px solid red;
+  height: 30pc;
   margin-top: 10px;
   margin-left: 155px;
+  border-radius: 20px;
+  box-shadow: -1px 5px 12px 1px #000;
 }
 .ps-profile-card > .pc-back-img {
   width: 100%;
@@ -24,6 +25,7 @@ html {
   background-repeat: repeat-x;
   background-size: contain;
   object-fit: contain;
+  border-radius: inherit;
 }
 .ps-profile-card > .pc-profile-img {
   width: 160px;
@@ -60,4 +62,52 @@ html {
   border: 1px solid var(--CTA-1);
 }
 .pc-information {
+  width: 99%;
+}
+.pc-information > .pc-info-name {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-left: 10px;
+}
+.pc-info-name > h1 {
+  text-transform: capitalize;
+  color: var(--CTA-1);
+  font-size: 45px;
+}
+.pc-information > .pc-info-email_type {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.pc-info-email_type > .pc-info-email {
+  height: 27px;
+  width: 180%;
+}
+.pc-info-email > p {
+  font-size: 20px;
+}
+.pc-info-email_type > .pc-info-type {
+  height: 27px;
+  width: 100%;
+}
+.pc-info-type > p {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 20px;
+}
+.pc-information > .pc-info-views {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: bottom;
+  margin-top: -30px;
+  margin-left: 10px;
+}
+.pc-info-views > p {
+  font-size: 21px;
 }
