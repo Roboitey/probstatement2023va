@@ -18,12 +18,14 @@ function Profiles() {
         <div className="ps-profile-card">
           <div className="pc-back-img" />
           <div className="pc-profile-img" />
-          <div className="pc-edit">
-            <ModeEditOutlineOutlinedIcon
-              fontSize="large"
-              className="edit-icon"
-            />
-          </div>
+          <a href="/edit-profile">
+            <div className="pc-edit">
+              <ModeEditOutlineOutlinedIcon
+                fontSize="large"
+                className="edit-icon"
+              />
+            </div>
+          </a>
           <div className="pc-information">
             <div className="pc-info-name">
               <h1>{user["username"]}</h1>

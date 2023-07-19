@@ -2,6 +2,7 @@ import "./App.css";
 import Home from "./Main_Components/Home";
 import Profiles from "./Main_Components/Profiles";
 import Opportunity from "./Main_Components/Opportunity";
+import ProfileEdit from "./Main_Components/profileEdit";
 import ForgotPassword from "./Main_Components/forgotPassword";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Layout from "./Main_Components/Layout";
@@ -23,6 +24,7 @@ function App() {
             <Route path="*" element={<NotFound/>}/>
             <Route path="/forget-pass" element={<ForgotPassword/>}/>
             <Route path="/profile" element={<Profiles/>}/>
+            <Route path="/edit-profile" element={<ProfileEdit/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
