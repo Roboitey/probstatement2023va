@@ -3,6 +3,7 @@ import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutl
 import { getProfile } from "../services/profileService";
 import { useEffect } from "react";
 import { useState } from "react";
+import "../Styles/Profile.css";
 
 function Profiles() {
   const [user, setUser] = useState({});
@@ -13,34 +14,52 @@ function Profiles() {
   }, []);
   return (
     <>
-      <div className="profile-section-container">
+      <section className="profile-section-container">
         <div className="ps-profile-card">
-          <img className="pc-back-img" src="#" alt="Not Found" />
-          <img className="pc-profile-img" src="#" alt="Not Found" />
-          <div className="pc-edit">
-            <ModeEditOutlineOutlinedIcon />
-          </div>
+          <div className="pc-back-img" />
+          <div className="pc-profile-img" />
+          <a href="/edit-profile">
+            <div className="pc-edit">
+              <ModeEditOutlineOutlinedIcon
+                fontSize="large"
+                className="edit-icon"
+                sx={{ color: "black" }}
+              />
+            </div>
+          </a>
           <div className="pc-information">
             <div className="pc-info-name">
               <h1>{user["username"]}</h1>
             </div>
-            <div className="pc-info-email/type">
+            <div className="pc-info-email_type">
               <div className="pc-info-email">
-                <p>Email Address: {user["email"]}</p>
+                <p>
+                  Email Address: <strong>{user["email"]}</strong>
+                </p>
               </div>
               <div className="pc-info-type">
                 <p>{user["type"]}</p>
               </div>
             </div>
             <div className="pc-info-views">
-              <p>{user["views"]}</p>
+              <p>Views: {user["views"]}</p>
             </div>
           </div>
         </div>
-      </div>
+        <div className="ps-about-card">
+          <div className="about-card">
+            <h1>About Section</h1>
+          </div>
+          <div className="ac-name">
+            <h5>{user["username"]} <span>&#183;</span> {user["type"]}</h5>
+          </div>
+          <div className="ac-description">
+            <p>{user.sections?.about}</p>
+          </div>
+        </div>
+      </section>
       {/*<div>Profiles {user["user_id"]}</div>
       <div>Profile type: {user["type"]}</div>
-      <div>Profile about: {user.sections?.about}</div>
   */}
     </>
   );

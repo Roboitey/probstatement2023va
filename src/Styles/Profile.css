@@ -1,0 +1,155 @@
+html {
+  --Primary-color: #284dd2;
+  --Secondary-color: #3e5bc1;
+  --Third-color: #4d5f9d;
+  --CTA-1: #08102b;
+  --CTA-2: #393e51;
+}
+.profile-section-container {
+  width: 98.5%;
+  height: 85vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile-section-container > .ps-profile-card {
+  width: 50%;
+  height: 27pc;
+  margin-top: 10px;
+  margin-left: 145px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 18px 1px #000;
+}
+.ps-profile-card > .pc-back-img {
+  width: 100%;
+  height: 150px;
+  background-image: url("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  object-fit: contain;
+  border-radius: inherit;
+}
+.ps-profile-card > .pc-profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 8px solid white;
+  background-image: url("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  margin-top: -70px;
+  margin-left: 40px;
+}
+.pc-edit {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  border: 1px solid transparent;
+  justify-content: center;
+  align-items: center;
+  top: 15.5pc;
+  left: 53pc;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.pc-edit > .edit-icon {
+  padding: 2px;
+}
+.pc-edit:hover {
+  background-color: #e7e7e7;
+  border: 1px solid var(--CTA-1);
+}
+.pc-information {
+  width: 99%;
+}
+.pc-information > .pc-info-name {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-left: 10px;
+}
+.pc-info-name > h1 {
+  text-transform: capitalize;
+  color: var(--CTA-1);
+  font-size: 45px;
+}
+.pc-information > .pc-info-email_type {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.pc-info-email_type > .pc-info-email {
+  height: 27px;
+  width: 180%;
+}
+.pc-info-email > p {
+  font-size: 20px;
+}
+.pc-info-email_type > .pc-info-type {
+  height: 27px;
+  width: 100%;
+}
+.pc-info-type > p {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 20px;
+}
+.pc-information > .pc-info-views {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: bottom;
+  margin-top: -30px;
+  margin-left: 10px;
+}
+.pc-info-views > p {
+  font-size: 21px;
+}
+.profile-section-container > .ps-about-card {
+  width: 50%;
+  height: 15pc;
+  margin-top: 10px;
+  margin-left: 145px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 18px 1px #000;
+}
+.ps-about-card > .about-card {
+  font-size: 45px;
+  margin-left: 10px;
+}
+.about-card > h1 {
+  color: var(--CTA-1);
+  font-size: 45px;
+}
+.ps-about-card > .ac-name {
+  width: 90%;
+  height: 50px;
+  border-radius: inherit;
+  margin-left: 10px;
+  margin-top: -12px;
+}
+.ac-name > h5 {
+  text-transform: capitalize;
+  font-size: 20px;
+  color: var(--CTA-2);
+  font-weight: 500;
+}
+.ps-about-card > .ac-description {
+  width: 90%;
+  height: 100px;
+  margin-left: 10px;
+}
+.ac-description > p{
+  color: var(--CTA-1);
+  font-size: 22px;
+  font-weight:400;
+}
