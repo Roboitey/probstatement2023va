@@ -7,15 +7,18 @@ html {
 }
 .profile-section-container {
   width: 98.5%;
-  height: 55vw;
+  height: 85vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .profile-section-container > .ps-profile-card {
   width: 50%;
-  height: 30pc;
+  height: 27pc;
   margin-top: 10px;
-  margin-left: 155px;
+  margin-left: 145px;
   border-radius: 20px;
-  box-shadow: -1px 5px 12px 1px #000;
+  box-shadow: 5px 5px 18px 1px #000;
 }
 .ps-profile-card > .pc-back-img {
   width: 100%;
@@ -110,4 +113,43 @@ html {
 }
 .pc-info-views > p {
   font-size: 21px;
+}
+.profile-section-container > .ps-about-card {
+  width: 50%;
+  height: 15pc;
+  margin-top: 10px;
+  margin-left: 145px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 18px 1px #000;
+}
+.ps-about-card > .about-card {
+  font-size: 45px;
+  margin-left: 10px;
+}
+.about-card > h1 {
+  color: var(--CTA-1);
+  font-size: 45px;
+}
+.ps-about-card > .ac-name {
+  width: 90%;
+  height: 50px;
+  border-radius: inherit;
+  margin-left: 10px;
+  margin-top: -12px;
+}
+.ac-name > h5 {
+  text-transform: capitalize;
+  font-size: 20px;
+  color: var(--CTA-2);
+  font-weight: 500;
+}
+.ps-about-card > .ac-description {
+  width: 90%;
+  height: 100px;
+  margin-left: 10px;
+}
+.ac-description > p{
+  color: var(--CTA-1);
+  font-size: 22px;
+  font-weight:400;
 }

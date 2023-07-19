@@ -23,6 +23,7 @@ function Profiles() {
               <ModeEditOutlineOutlinedIcon
                 fontSize="large"
                 className="edit-icon"
+                sx={{ color: "black" }}
               />
             </div>
           </a>
@@ -45,10 +46,20 @@ function Profiles() {
             </div>
           </div>
         </div>
+        <div className="ps-about-card">
+          <div className="about-card">
+            <h1>About Section</h1>
+          </div>
+          <div className="ac-name">
+            <h5>{user["username"]} <span>&#183;</span> {user["type"]}</h5>
+          </div>
+          <div className="ac-description">
+            <p>{user.sections?.about}</p>
+          </div>
+        </div>
       </section>
       {/*<div>Profiles {user["user_id"]}</div>
       <div>Profile type: {user["type"]}</div>
-      <div>Profile about: {user.sections?.about}</div>
   */}
     </>
   );

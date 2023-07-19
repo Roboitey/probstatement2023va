@@ -24,7 +24,7 @@ function App() {
             <Route path="*" element={<NotFound/>}/>
             <Route path="/forget-pass" element={<ForgotPassword/>}/>
             <Route path="/profile" element={<Profiles/>}/>
-            <Route path="/edit-profile" element={<ProfileEdit/>}/>
+            <Route path="/edit-profile" element={<ProfileEdit/> }/>
           </Route>
         </Routes>
       </BrowserRouter>
