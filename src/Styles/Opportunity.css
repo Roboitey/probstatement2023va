@@ -1,0 +1,69 @@
+.opportunity-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .opportunity-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .opportunity-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .opportunity-search {
+    padding: 8px;
+    width: 200px;
+  }
+  
+  .opportunity-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .opportunity-details {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 4px;
+  }
+  
+  .opportunity-details-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .opportunity-details-description {
+    margin-bottom: 8px;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-button {
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    padding: 4px 8px;
+    margin: 0 4px;
+    cursor: pointer;
+  }
+  
+  .pagination-button:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .pagination-button.active {
+    font-weight: bold;
+  }
