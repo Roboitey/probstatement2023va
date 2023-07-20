@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import "../Styles/Opportunity.css";
-
+import '../Styles/Opportunity.css';
 
 function Opportunity() {
-  // Sample opportunity data
-  const opportunities = [
-    { id: 1, title: 'Job Title 1', description: 'Description of job opportunity 1', company: 'Company A', location: 'Location 1' },
-    { id: 2, title: 'Job Title 2', description: 'Description of job opportunity 2', company: 'Company B', location: 'Location 2' },
-    { id: 3, title: 'Job Title 3', description: 'Description of job opportunity 3', company: 'Company C', location: 'Location 3' },
-    // Add more opportunity objects here...
-  ];
-
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const opportunitiesPerPage = 3; // Number of opportunities to display per page
+
+  // Actual opportunity data
+  const opportunities = [
+    { id: 1, title: 'Software Engineer', description: 'We are looking for a skilled software engineer with experience in React and Node.js.', company: 'ABC Company', location: 'New York, USA' },
+    { id: 2, title: 'Marketing Specialist', description: 'Join our marketing team to help promote our products and drive customer engagement.', company: 'XYZ Corporation', location: 'London, UK' },
+    { id: 3, title: 'Graphic Designer', description: 'We are seeking a talented graphic designer to create visually appealing designs for our brand.', company: '123 Design Agency', location: 'San Francisco, USA' },
+    // Add more opportunity objects here...
+  ];
 
   // Filter opportunities based on search term
   const filteredOpportunities = opportunities.filter(opportunity =>
@@ -34,10 +33,11 @@ function Opportunity() {
   return (
     <div className="opportunity-container">
       <div className="opportunity-header">
-        <h2 className="opportunity-title">Opportunity</h2>
+        <h2 className="opportunity-title"> Opportunitys and Jobs </h2>
         <input
           type="text"
           placeholder="Search..."
+          className="opportunity-search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

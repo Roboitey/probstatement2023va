@@ -10,7 +10,6 @@ import Login from "./Main_Components/Login";
 import NotFound from "./Main_Components/NotFound";
 import SignUp from "./Main_Components/signup";
 
-
 function App() {
   return (
     <>
