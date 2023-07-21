@@ -10,7 +10,6 @@ import Login from "./Main_Components/Login";
 import NotFound from "./Main_Components/NotFound";
 import SignUp from "./Main_Components/signup";
 
-
 function App() {
   return (
     <>
@@ -20,6 +19,7 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/sign-up" element={<SignUp/>}/>
             <Route path="/home" element={<Home/>}/>
+            <Route path="/opportunity" element={<Opportunity/>}/>
             <Route index element={<Home/>}/>
             <Route path="*" element={<NotFound/>}/>
             <Route path="/forget-pass" element={<ForgotPassword/>}/>
