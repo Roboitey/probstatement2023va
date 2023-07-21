@@ -86,7 +86,7 @@ function Login() {
       </button>
 
       <div>
-        <a type="button" className="forgo-pass" href="/forget-pass">
+        <a type="button" className="forgot-pass" href="/forget-pass">
             Forgot Password?
         </a>
       </div>

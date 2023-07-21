@@ -6,6 +6,7 @@ import { useState } from "react";
 import "../Styles/Profile.css";
 
 function Profiles() {
+  //myProfile 64bafa36c5c9fef93758df78
   const [user, setUser] = useState({});
   useEffect(() => {
     getProfile("64a5685eb514057de4e2d42d").then((profile) =>
@@ -48,7 +49,7 @@ function Profiles() {
         </div>
         <div className="ps-about-card">
           <div className="about-card">
-            <h1>About Section</h1>
+            <h1>About</h1>
           </div>
           <div className="ac-name">
             <h5>{user["username"]} <span>&#183;</span> {user["type"]}</h5>
