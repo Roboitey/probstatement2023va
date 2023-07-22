@@ -41,6 +41,7 @@ function ForgotPassword() {
           <label for="confirmPassword" placeholder="enter...">ConfirmPassword:</label>
           <input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder='confirmPassword: ' onChange={(e) => { setconfirmPassword(e.target.value) }} />
           {error}
+          
           <button type="submit">Reset Password</button>
         </form>
       </div>
