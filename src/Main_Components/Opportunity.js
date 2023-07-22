@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/Opportunity.css';
+import { getOpportunity } from '../services/OpportunityService';
+import MDEditor from '@uiw/react-md-editor';
+
 
 function Opportunity() {
+  const [opportunities, setOpportunities] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const opportunitiesPerPage = 3; // Number of opportunities to display per page
 
-  // Actual opportunity data
-  const opportunities = [
-    { id: 1, title: 'Software Engineer', description: 'We are looking for a skilled software engineer with experience in React and Node.js.', company: 'ABC Company', location: 'New York, USA' },
-    { id: 2, title: 'Marketing Specialist', description: 'Join our marketing team to help promote our products and drive customer engagement.', company: 'XYZ Corporation', location: 'London, UK' },
-    { id: 3, title: 'Graphic Designer', description: 'We are seeking a talented graphic designer to create visually appealing designs for our brand.', company: '123 Design Agency', location: 'San Francisco, USA' },
-    // Add more opportunity objects here...
-  ];
 
-  // Filter opportunities based on search term
-  const filteredOpportunities = opportunities.filter(opportunity =>
+  useEffect(()=> {
+    getOpportunity().then((data)=> {
+      console.log(data)
+      setOpportunities(data.opportunities)
+    })
+  },[])
+  
+
+   // Filter opportunities based on search term
+   const filteredOpportunities = opportunities.filter(opportunity =>
     opportunity.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    opportunity.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    opportunity.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    opportunity.location.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    opportunity.contents.toLowerCase().includes(searchTerm.toLowerCase()) );
 
   // Pagination
   const indexOfLastOpportunity = currentPage * opportunitiesPerPage;
@@ -33,7 +35,7 @@ function Opportunity() {
   return (
     <div className="opportunity-container">
       <div className="opportunity-header">
-        <h2 className="opportunity-title"> Opportunitys and Jobs </h2>
+        <h2 className="opportunity-title">Opportunities..</h2>
         <input
           type="text"
           placeholder="Search..."
@@ -43,16 +45,16 @@ function Opportunity() {
         />
       </div>
       <div className="opportunity-content">
-        {currentOpportunities.map(opportunity => (
-          <div key={opportunity.id} className="opportunity-details">
-            <h3 className="opportunity-details-title">{opportunity.title}</h3>
-            <p className="opportunity-details-description">{opportunity.description}</p>
-            <h3 className="opportunity-details-title">Company</h3>
-            <p className="opportunity-details-description">{opportunity.company}</p>
-            <h3 className="opportunity-details-title">Location</h3>
-            <p className="opportunity-details-description">{opportunity.location}</p>
-          </div>
-        ))}
+        {currentOpportunities.length === 0 ? (
+          <div className="no-results">No results found...</div>
+        ) : (
+          currentOpportunities.map(opportunity => (
+            <div key={opportunity.id} className="opportunity-details">
+              <h3 className="opportunity-details-title">{opportunity.title}</h3>
+              <MDEditor.Markdown className="opportunity-details-description" source={opportunity.contents}/>
+            </div>
+          ))
+        )}
         {/* Pagination */}
         <div className="pagination">
           {Array.from({ length: Math.ceil(filteredOpportunities.length / opportunitiesPerPage) }, (_, index) => (
