@@ -19,7 +19,7 @@ function SignUp() {
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [captchaImgVIsibility, setCaptchaImgVisibility] = useState(false);
   const [strength, setStrength] = useState();
-  const [st, setSt] = useState("");
+  const [st, setSt] = useState("Weak");
   const [passwordType, setPasswordType] = useState(false);
   const captchaImage = "images/Captcha.png"; // Replace with the actual captcha image URL
 
@@ -30,28 +30,30 @@ function SignUp() {
     if (pass.length <= 11) {
       setStrength(false);
       setSt("Weak");
-      console.log(strength)
     }
     if (11 < pass.length && pass.length < 17) {
       setStrength(true);
       setSt("Moderate");
-      console.log(strength)
     }
     if (pass.length >= 17) {
       setStrength(true);
       setSt("Strong");
-      console.log(strength)
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (isCaptchaValid) {
-      // Perform Sign up logic here
-      console.log("Correct captcha");
-      SignUpSystem(username, Email, password);
-    } else {
-      console.log("Invalid captcha");
+    if (strength) {
+      if (isCaptchaValid) {
+        // Perform Sign up logic here
+        console.log("Correct captcha");
+        SignUpSystem(username, Email, password);
+      } else {
+        console.log("Invalid captcha");
+      }
+    }
+    else {
+      console.log("Password too short");
     }
   };
 
@@ -102,7 +104,7 @@ function SignUp() {
         <input
           type={passwordType ? "text" : "password"}
           id="password"
-          className="fl-input-password"
+          className="fl-input"
           value={password}
           onChange={password_func}
           placeholder="Password"
@@ -124,6 +126,9 @@ function SignUp() {
             }}
           />
         )}
+        <div className="password-strength">
+          <p className={st}>{st} <span>&#183;</span> {password.length} characters</p>
+        </div>
       </div>
 
       <div className="fl-cont">

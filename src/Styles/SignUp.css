@@ -23,10 +23,10 @@ html {
 }
 .form-signUp > .fl-cont {
   width: 500px;
-  height: 65px;
+  height: 85px;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 .fl-label {
   color: var(--CTA-1);
@@ -42,18 +42,20 @@ html {
   background-color: transparent;
   transition: all 0.4s ease;
 }
-.fl-input-password{
-    border: 1px solid black;
-    height: 35px;
-    width: 100%;
-    padding: 2px;
-    outline: none;
-    border-radius: 5px;
-    background-color: transparent;
-    transition: all 0.4s ease;
-}
 .fl-input:focus {
   background-color: #f0f0f0;
+}
+.password-strength{
+  font-size: 16px;
+}
+.password-strength > .Weak{
+  color: red;
+}
+.password-strength > .Moderate{
+  color: #CFBF39;
+}
+.password-strength > .Strong{
+  color: #1ECB34;
 }
 .captcha-btn {
   width: 140px;
@@ -120,7 +122,7 @@ html {
   text-decoration: underline;
 }
 .visibility-icon {
-  margin-top: -29px;
+  margin-top: -25px;
   margin-left: 460px;
   transition: all 0.1s;
   padding: 1px;

@@ -1,6 +1,6 @@
-import React from 'react'
-import "../Styles/forgotPassword.css"
-import { useState } from 'react';
+import React from "react";
+import "../Styles/forgotPassword.css";
+import { useState } from "react";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -10,43 +10,78 @@ function ForgotPassword() {
   const [submit, setSubmit] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
-    if(submit){
-      if(password !== confirmPassword){
-        setError("password does not match")
-      } else{
-        console.log('Password changed');
-        setError("")
+    if (submit) {
+      if (password !== confirmPassword) {
+        setError("password does not match");
+      } else {
+        console.log("Password changed");
+        setError("");
       }
     } else {
       console.log("Recovery email has been sent to " + email);
-      setSubmit(true)
+      setSubmit(true);
     }
   }
-  return (
-    (!submit) ? (
-      <div className="forget-pass">
+  return !submit ? (
+    <div className="forget-pass">
+      <div className="forge-pass-title">
         <h1>Forgot Password?</h1>
-        <form onSubmit={handleSubmit}>
-          <label for="email" placeholder="enter...">Email:</label>
-          <input type="email" id="email" name="email" placeholder='email: ' onChange={(e) => { setEmail(e.target.value) }} />
-          <button type="submit">Reset Password</button>
-        </form>
       </div>
-    ) : (
-      <div className="forget-pass">
-        <h1>Set New Password</h1>
-        <form onSubmit={handleSubmit}>
-          <label for="password" placeholder="enter...">Password:</label>
-          <input type="password" id="password" name="password" placeholder='password: ' onChange={(e) => { setPassword(e.target.value) }} />
-          <label for="confirmPassword" placeholder="enter...">ConfirmPassword:</label>
-          <input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder='confirmPassword: ' onChange={(e) => { setconfirmPassword(e.target.value) }} />
-          {error}
-          
+      <form onSubmit={handleSubmit}>
+        <label for="email" placeholder="enter...">
+          Email:
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="email: "
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <button type="submit">Reset Password</button>
+      </form>
+    </div>
+  ) : (
+    <div className="reset-password">
+      <h1>Set New Password</h1>
+      <form onSubmit={handleSubmit} className="reset-password-form">
+        <div className="reset-password-form-cont">
+          <label for="password" placeholder="enter...">
+            Password:
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <div className="reset-password-form-cont">
+          <label for="confirmPassword" placeholder="enter...">
+            ConfirmPassword:
+          </label>
+          <input
+            type="confirmPassword"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password "
+            onChange={(e) => {
+              setconfirmPassword(e.target.value);
+            }}
+          />
+        </div>
+        {error}
+        <div className="reset-password-form-btn">
           <button type="submit">Reset Password</button>
-        </form>
-      </div>
-    )
-  )
+        </div>
+      </form>
+    </div>
+  );
 }
 
-export default ForgotPassword
+export default ForgotPassword;
