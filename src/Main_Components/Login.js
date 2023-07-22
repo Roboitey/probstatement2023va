@@ -14,26 +14,8 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (isCaptchaValid) {
-      // Perform login logic here
-      console.log("Correct captcha");
-      LoginSystem(username, password);
-    } else {
-      console.log("Invalid captcha");
-    }
+    LoginSystem(username, password);
   };
-
-  const handleCaptchaChange = (event) => {
-    setCaptcha(event.target.value);
-  };
-
-  const handleCaptchaBlur = () => {
-    // Simulate captcha validation (e.g., make an API call)
-    const isCaptchaValid = captcha === "ja5tyi02"; // Replace '1234' with the correct captcha value
-    setIsCaptchaValid(isCaptchaValid);
-  };
-
   return (
     <form onSubmit={handleSubmit} className="form-login">
       <h1 className="fl-title">Login To inBDPA</h1>
@@ -87,7 +69,7 @@ function Login() {
 
       <div>
         <a type="button" className="forgot-pass" href="/forget-pass">
-            Forgot Password?
+          Forgot Password?
         </a>
       </div>
     </form>
