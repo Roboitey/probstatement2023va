@@ -2,6 +2,8 @@ import { Email } from "@mui/icons-material";
 import React from "react";
 import { useState } from "react";
 import { SignUpSystem } from "../services/LoginService";
+import { SignInSystem } from "../services/LoginService";
+import { useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import "../Styles/SignUp.css";
@@ -22,7 +24,7 @@ function SignUp() {
   const [st, setSt] = useState("Weak");
   const [passwordType, setPasswordType] = useState(false);
   const captchaImage = "images/Captcha.png"; // Replace with the actual captcha image URL
-
+  const Nav = useNavigate();
   const password_func = (e) => {
     const pass = e.target.value;
     setPassword(pass);
@@ -47,12 +49,16 @@ function SignUp() {
       if (isCaptchaValid) {
         // Perform Sign up logic here
         console.log("Correct captcha");
-        SignUpSystem(username, Email, password);
+        SignUpSystem(username, Email, password).then((data) => {
+          if (data.success) {
+            SignInSystem(data.user);
+            Nav("/profile/"+ data.user.user_id)
+          }
+        });
       } else {
         console.log("Invalid captcha");
       }
-    }
-    else {
+    } else {
       console.log("Password too short");
     }
   };
@@ -127,7 +133,9 @@ function SignUp() {
           />
         )}
         <div className="password-strength">
-          <p className={st}>{st} <span>&#183;</span> {password.length} characters</p>
+          <p className={st}>
+            {st} <span>&#183;</span> {password.length} characters
+          </p>
         </div>
       </div>
 

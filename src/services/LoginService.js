@@ -72,16 +72,19 @@ export function LoginSystem(Username, Password) {
         requestOptions
       ).then((res) => {
         res.json().then((data) => {
-          if (res["success"]) {
-            localStorage.setItem("userData", JSON.stringify(data["user"]));
+          console.log(data)
+          if (data["success"]) {
+            console.log()
+            localStorage.setItem("user", JSON.stringify(user["user"]));
           }
+          
         });
       });
     });
   });
 }
 export function SignUpSystem(username, email, password) {
-  deriveKeyFromPassword(password).then((data) => {
+  return deriveKeyFromPassword(password).then((data) => {
     const requestOptions = {
       method: "POST",
       headers: {
@@ -96,10 +99,14 @@ export function SignUpSystem(username, email, password) {
         type: "inner",
       }),
     };
-    fetch("https://inbdpa.api.hscc.bdpa.org/v1/users", requestOptions).then(
-      (response) => {
-        console.log(response);
-      }
-    );
+    return fetch(
+      "https://inbdpa.api.hscc.bdpa.org/v1/users",
+      requestOptions
+    ).then((response) => {
+      return response.json();
+    });
   });
+}
+export function SignInSystem(user) {
+  localStorage.setItem("user", JSON.stringify(user));
 }

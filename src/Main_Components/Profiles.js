@@ -4,14 +4,15 @@ import { getProfile } from "../services/profileService";
 import { useEffect } from "react";
 import { useState } from "react";
 import "../Styles/Profile.css";
+import { useParams } from "react-router-dom";
 
 function Profiles() {
   //myProfile 64bafa36c5c9fef93758df78
   const [user, setUser] = useState({});
+  const { userId = JSON.parse(localStorage.getItem("user"))["user_id"] } = useParams();
   useEffect(() => {
-    getProfile("64a5685eb514057de4e2d42d").then((profile) =>
-      setUser(profile["user"])
-    );
+    console.log(userId);
+    getProfile(userId).then((profile) => setUser(profile["user"]));
   }, []);
   return (
     <>
@@ -52,7 +53,9 @@ function Profiles() {
             <h1>About</h1>
           </div>
           <div className="ac-name">
-            <h5>{user["username"]} <span>&#183;</span> {user["type"]}</h5>
+            <h5>
+              {user["username"]} <span>&#183;</span> {user["type"]}
+            </h5>
           </div>
           <div className="ac-description">
             <p>{user.sections?.about}</p>

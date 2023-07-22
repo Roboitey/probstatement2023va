@@ -4,7 +4,7 @@ import Profiles from "./Main_Components/Profiles";
 import Opportunity from "./Main_Components/Opportunity";
 import ProfileEdit from "./Main_Components/profileEdit";
 import ForgotPassword from "./Main_Components/forgotPassword";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Main_Components/Layout";
 import Login from "./Main_Components/Login";
 import NotFound from "./Main_Components/NotFound";
@@ -15,16 +15,17 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout/>}>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/sign-up" element={<SignUp/>}/>
-            <Route path="/home" element={<Home/>}/>
-            <Route path="/opportunity" element={<Opportunity/>}/>
-            <Route index element={<Home/>}/>
-            <Route path="*" element={<NotFound/>}/>
-            <Route path="/forget-pass" element={<ForgotPassword/>}/>
-            <Route path="/profile" element={<Profiles/>}/>
-            <Route path="/edit-profile" element={<ProfileEdit/> }/>
+          <Route path="/" element={<Layout />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/opportunity" element={<Opportunity />} />
+            <Route index element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/forget-pass" element={<ForgotPassword />} />
+            <Route path="/profile" element={<Profiles />} />
+            <Route path="/profile/:userId" element={<Profiles />} />
+            <Route path="/edit-profile" element={<ProfileEdit />} />
           </Route>
         </Routes>
       </BrowserRouter>
@@ -33,4 +34,3 @@ function App() {
 }
 
 export default App;
-
