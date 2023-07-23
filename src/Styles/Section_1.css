@@ -94,6 +94,7 @@ html {
   top: 6pc;
   left: 75%;
   transform: translateX(-50%);
+  visibility: hidden;
 }
 .right-img > div {
   width: 100%;

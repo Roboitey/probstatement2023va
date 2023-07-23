@@ -11,7 +11,6 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState(false);
-  const Nav = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();

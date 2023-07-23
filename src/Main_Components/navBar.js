@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Styles/NavBar.css";
 import Nav_Items from "../Data/NavBar_Data";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import { Icon } from '@iconify/react';
 
 function NavBar() {
+  const [MenuOpen, setMenuOpen] = useState(false);
   return (
     <>
       <div className="navbar-container">
@@ -39,6 +43,13 @@ function NavBar() {
           </a>
         </div>
       </div>
+      <button className="menu-btn">
+        {MenuOpen ? (
+          <CloseIcon sx={{ color: "black" }} fontSize="large"/>
+        ) : (
+          <Icon icon="oi:menu" width="170" height="170" />
+        )}
+      </button>
     </>
   );
 }
