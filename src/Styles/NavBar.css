@@ -20,11 +20,13 @@ html {
   transition: all 0.5s;
   margin-left: 150px;
 }
-.navbar-container > .logo {
+.navbar-container > .logo,
+.navbar-container > .logo-off {
   width: 200px;
   height: 95%;
 }
-.logo > a {
+.logo > a,
+.logo-off > a {
   width: 100%;
   height: 100%;
   display: flex;
@@ -34,10 +36,12 @@ html {
   text-decoration: none;
   text-shadow: none;
 }
-.logo > a:hover {
+.logo > a:hover,
+.logo-off > a:hover {
   cursor: pointer;
 }
-.logo > a > div {
+.logo > a > div,
+.logo-off > a > div {
   width: 100%;
   height: 100%;
   background-image: url(../Images/BDPA_logo.png);
@@ -46,32 +50,37 @@ html {
   background-size: contain;
   object-fit: contain;
 }
-.logo > a > h1 {
+.logo > a > h1,
+.logo-off > a > h1 {
   font-size: 42px;
   color: var(--CTA-1);
   text-shadow: none;
 }
-.menu-btn{
+.menu-btn {
   display: none;
   visibility: hidden;
   transition: all 0.5s ease;
 }
-.navbar-container > nav {
+.navbar-container > .navbar-container-nav,
+.navbar-container > .navbar-container-nav-off {
   width: 50%;
   transition: all 0.5s;
 }
-.navbar-container > nav > ul {
+.navbar-container-nav > ul,
+.navbar-container-nav-off > ul {
   display: flex;
   flex-flow: row nowrap;
   gap: 50px;
   justify-content: center;
   align-items: center;
 }
-.navbar-container > nav > ul > li {
+.navbar-container-nav > ul > li,
+.navbar-container-nav-ff > ul > li {
   list-style-type: none;
   list-style: none;
 }
-.navbar-container > nav > ul > li > a {
+.navbar-container > .navbar-container-nav > ul > li > a,
+.navbar-container-nav-off > ul > li > a {
   color: var(--CTA-1);
   font-size: 26px;
   text-decoration: none;
@@ -84,24 +93,29 @@ html {
   border-radius: 2px;
   text-shadow: none;
 }
-.navbar-container > nav > ul > li > a:hover {
+.navbar-container-nav > ul > li > a:hover,
+.navbar-container-nav-off > ul > li > a:hover {
   cursor: pointer;
   color: var(--Secondary-color);
 }
-.navbar-container > nav > ul > li > a:focus {
+.navbar-container > .navbar-container-nav > ul > li > a:focus,
+.navbar-container-nav-off > ul > li > a:focus {
   outline: 2px solid var(--CTA-2);
 }
-.navbar-container > nav > ul > li > a.active {
+.navbar-container-nav > ul > li > a.active,
+.navbar-container-nav-off > ul > li > a.active {
   color: var(--Primary-color);
   border-bottom: 2px solid var(--Third-color);
   border-bottom-width: 3px;
   outline: 2px solid transparent;
   border-radius: 2px;
 }
-.navbar-container > nav > ul > li > a.active:hover {
+.navbar-container-nav > ul > li > a.active:hover,
+.navbar-container-nav-off > ul > li > a.active:hover {
   outline: 2px solid var(--Third-color);
 }
-.navbar-container > nav > ul > li > a.active:focus {
+.navbar-container-nav > ul > li > a.active:focus,
+.navbar-container > .navbar-container-nav-off > ul > li > a.active:focus {
   outline: 2px solid var(--Primary-color);
 }
 .btn-logins {
@@ -161,10 +175,10 @@ html {
     margin-left: 0px;
   }
 }
-@media (max-width: 400px){
+@media (max-width: 400px) {
   .navbar-container {
     width: 205dvh;
-    height: 150px;
+    height: 20pc;
     display: flex;
     flex-flow: column;
     align-items: start;
@@ -173,50 +187,34 @@ html {
     margin-left: 0px;
     transition: all 0.5s;
   }
-  .navbar-container > .logo {
+  .logo {
     width: 200px;
     height: 95%;
     margin-top: 20px;
     transition: all 0.5s;
     margin-left: 20px;
   }
-  .logo > a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
+  .logo-off{
+    position: absolute;
+    width: 200px;
+    height: 95%;
     transition: all 0.5s;
-    text-shadow: none;
+    left: 20px;
+    top: -80px;
   }
-  .logo > a:hover {
-    cursor: pointer;
-  }
-  .logo > a > div {
+  .navbar-container > .navbar-container-nav {
     width: 100%;
-    height: 100%;
-    background-image: url(../Images/BDPA_logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transition: all 0.5s;
-    object-fit: contain;
-  }
-  .logo > a > h1 {
-    font-size: 42px;
-    color: var(--CTA-1);
-    transition: all 0.5s;
-    text-shadow: none;
-  }
-  .navbar-container > nav {
-    width: 100%;
+    height: 70pc;
     background-color: #f0f0f0;
     margin-top: 5px;
     transition: all 0.5s;
+    visibility: visible;
+    overflow: hidden;
   }
-  .navbar-container > nav > ul {
+  .navbar-container > .navbar-container-nav-off {
+    display: none;
+  }
+  .navbar-container-nav > ul {
     display: flex;
     flex-flow: column nowrap;
     gap: 20px;
@@ -233,7 +231,7 @@ html {
     align-items: center;
     gap: 20px;
     position: absolute;
-    top: 150px;
+    top: 100px;
     right: 5pc;
   }
   .btn-logins > a {
@@ -260,13 +258,20 @@ html {
     transition: all 0.5s ease;
     background: var(--Primary-color);
   }
-  .menu-btn{
+  .menu-btn {
     display: block;
     visibility: visible;
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: -870px;
     width: 100px;
     height: 50px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 7px;
+    transition: all 0.4s;
+  }
+  .menu-btn:hover {
+    background-color: #f0f0f0;
   }
 }

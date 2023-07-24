@@ -10,13 +10,13 @@ function NavBar() {
   return (
     <>
       <div className="navbar-container">
-        <div className="logo">
+        <div className={MenuOpen ? "logo-off" : "logo"}>
           <a href="/">
             <div />
             <h1>inBDPA</h1>
           </a>
         </div>
-        <nav>
+        <nav className={MenuOpen ? "navbar-container-nav-off" : "navbar-container-nav"}>
           <ul>
             {Nav_Items.map((item, key) => {
               return (
@@ -43,11 +43,11 @@ function NavBar() {
           </a>
         </div>
       </div>
-      <button className="menu-btn">
+      <button className="menu-btn" onClick={() => {setMenuOpen(!MenuOpen)}}>
         {MenuOpen ? (
-          <CloseIcon sx={{ color: "black" }} fontSize="large"/>
+          <Icon icon="line-md:menu-to-close-alt-transition" width="40" height="40" />
         ) : (
-          <Icon icon="oi:menu" width="170" height="170" />
+          <Icon icon="mingcute:menu-fill" width="40" height="40" />
         )}
       </button>
     </>
