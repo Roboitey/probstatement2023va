@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "../Styles/NavBar.css";
 import Nav_Items from "../Data/NavBar_Data";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 import { Icon } from '@iconify/react';
 
 function NavBar() {
