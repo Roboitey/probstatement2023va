@@ -1,3 +1,4 @@
+
 html {
   --Primary-color: #284dd2;
   --Secondary-color: #3e5bc1;
@@ -160,7 +161,7 @@ html {
   cursor: pointer;
   background: var(--Third-color);
 }
-@media (max-width: 1190px) and (min-width: 1000px) {
+@media (max-width: 1250px) and (min-width: 1000px) {
   .navbar-container {
     width: 100%;
     height: 80px;
@@ -171,8 +172,15 @@ html {
     transition: all 0.5s;
     margin-left: 0px;
   }
+  .navbar-container > .logo,
+  .navbar-container > .logo-off {
+    width: 200px;
+    height: 95%;
+    margin-left: 20px;
+  }
 }
-@media (max-width: 1000px) and (min-width: 699px) {
+
+@media (max-width: 999px) and (min-width: 699px) {
   .navbar-container {
     width: 100%;
     height: 80px;
@@ -274,6 +282,7 @@ html {
     background: var(--Third-color);
   }
 }
+
 @media (max-width: 700px) {
   .navbar-container {
     width: 100%;
@@ -298,7 +307,7 @@ html {
     height: 95%;
     transition: all 0s;
     position: absolute;
-    top: -280px;
+    top: -244px;
     margin-left: 20px;
   }
   .navbar-container > .navbar-links-nav {
@@ -310,6 +319,7 @@ html {
     visibility: visible;
     display: block;
     overflow: hidden;
+    z-index: 1;
   }
   .navbar-container > .navbar-links-off {
     visibility: hidden;
@@ -369,13 +379,15 @@ html {
     background: var(--Primary-color);
   }
   .menu-btn {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     visibility: visible;
     position: absolute;
     top: 30px;
     right: 10px;
-    width: 100px;
-    height: 50px;
+    width: 60px;
+    height: 40px;
     background-color: transparent;
     border: 1px solid black;
     border-radius: 7px;

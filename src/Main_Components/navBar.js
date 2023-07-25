@@ -47,7 +47,7 @@ function NavBar() {
           setMenuOpen(!MenuOpen);
         }}
       >
-        <Icon icon="mingcute:menu-fill" width="40" height="40" />
+        <Icon icon="mingcute:menu-fill" width="30" height="30" />
       </button>
     </>
   );

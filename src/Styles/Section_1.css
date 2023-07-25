@@ -3,7 +3,7 @@ html {
   --Secondary-color: #3e5bc1;
   --Third-color: #4d5f9d;
   --CTA-1: #08102b;
-  --CTA-2: #393e51; 
+  --CTA-2: #393e51;
 }
 
 .sec-1 {
@@ -38,15 +38,15 @@ html {
   line-height: 90%;
   letter-spacing: -1.6px;
   text-shadow: none;
+  z-index: -1;
 }
 .cont-c {
   width: 40%;
   margin-right: 10px;
-  margin-left: 10px;
+  margin-left: 15px;
   margin-bottom: 10px;
   margin-top: -20px;
   font-weight: 400;
-  font-size: 20px;
   font-style: normal;
   font-family: "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell",
     "Helvetica Neue", sans-serif;
@@ -59,23 +59,29 @@ html {
   color: var(--CTA-2);
   line-height: 1.2;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 19px;
   font-style: normal;
 }
 .cont-b {
   margin-top: -14px;
   margin-left: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 50px;
 }
 .cont-b > button {
   background-color: var(--Secondary-color);
   border: solid 1px var(--Third-color);
   color: #fff;
   outline: 2px solid transparent;
-  width: 150px;
+  width: 100%;
+  height: 100%;
   outline: none;
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: 0.3px;
-  padding: 12px;
+  padding: 5px;
   border-radius: 4px;
   transition: all 0.2s ease;
   user-select: none;
@@ -92,9 +98,8 @@ html {
   height: 560px;
   position: absolute;
   top: 6pc;
-  left: 75%;
-  transform: translateX(-50%);
-  visibility: hidden;
+  right: 20px;
+  overflow: visible;
 }
 .right-img > div {
   width: 100%;
@@ -104,4 +109,220 @@ html {
   background-size: cover;
   object-fit: cover;
   margin-top: -10pc;
+}
+@media (max-width: 1390px) and (min-width: 1000px) {
+  .sec-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    margin-top: 70px;
+    width: 100%;
+    height: 35rem;
+  }
+  .f-s {
+    width: 99%;
+    height: auto;
+    margin-top: 3px;
+    margin-left: 0;
+  }
+  .right-img {
+    width: 600px;
+    height: 460px;
+    position: absolute;
+    top: 6pc;
+    right: 20px;
+    overflow: visible;
+  }
+}
+@media (max-width: 1115px) and (min-width: 1030px) {
+  .sec-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    margin-top: 70px;
+    width: 100%;
+    height: 35rem;
+  }
+  .f-s {
+    width: 99%;
+    height: auto;
+    margin-top: 3px;
+    margin-left: 0;
+  }
+  .right-img {
+    width: 520px;
+    height: 420px;
+    position: absolute;
+    top: 7pc;
+    right: 20px;
+    overflow: visible;
+  }
+}
+@media (max-width: 1030px) and (min-width: 1000px) {
+  .sec-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    margin-top: 70px;
+    width: 100%;
+    height: 35rem;
+  }
+  .f-s {
+    width: 99%;
+    height: auto;
+    margin-top: 3px;
+    margin-left: 0;
+  }
+  .right-img {
+    width: 520px;
+    height: 420px;
+    position: absolute;
+    top: 7pc;
+    right: 1px;
+    overflow: visible;
+  }
+}
+@media (max-width: 1000px) and (min-width: 699px) {
+  .sec-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    margin-top: 70px;
+    width: 100%;
+    height: 35rem;
+  }
+  .f-s {
+    width: 99%;
+    height: auto;
+    margin-top: 3px;
+    margin-left: 0;
+  }
+  .cont-t {
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    width: 400px;
+  }
+  .cont-t > h1 > span {
+    font-weight: 500;
+    line-height: 100%;
+    font-size: 45px;
+    font-family: Recoleta, Georgia, "Times New Roman", Times, serif;
+    color: var(--CTA-1);
+    line-height: 90%;
+    letter-spacing: -1.6px;
+    text-shadow: none;
+  }
+  .right-img {
+    width: 520px;
+    height: 420px;
+    position: absolute;
+    top: 8.5pc;
+    right: 20px;
+    overflow: visible;
+    z-index: -2;
+  }
+  .cont-c > p {
+    text-shadow: none;
+    color: var(--CTA-2);
+    line-height: 1.2;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+  }
+  .cont-c {
+    width: 30%;
+    margin-right: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell",
+      "Helvetica Neue", sans-serif;
+    padding: 10px;
+    color: var(--CTA-2);
+    line-height: 1.2;
+  }
+}
+@media (max-width: 700px) and (min-width: 315px) {
+  .sec-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    margin-top: 20px;
+    width: 100%;
+    height: 35rem;
+  }
+  .f-s {
+    width: 99%;
+    height: auto;
+    margin-top: -200px;
+    margin-left: 0;
+  }
+  .cont-t {
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    width: 300px;
+  }
+  .cont-t > h1 > span {
+    font-weight: 500;
+    line-height: 100%;
+    font-size: 45px;
+    font-family: Recoleta, Georgia, "Times New Roman", Times, serif;
+    color: var(--CTA-1);
+    line-height: 90%;
+    letter-spacing: -1.6px;
+    text-shadow: none;
+  }
+  .cont-c > p {
+    text-shadow: none;
+    color: var(--CTA-2);
+    line-height: 1.2;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+  }
+  .cont-c {
+    width: 50%;
+    margin-right: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell",
+      "Helvetica Neue", sans-serif;
+    padding: 10px;
+    color: var(--CTA-2);
+    line-height: 1.2;
+  }
+  .right-img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 14pc;
+    right: 1px;
+    overflow: visible;
+    z-index: -1;
+  }
+  .right-img > div {
+    width: 100%;
+    height: 100%;
+    background-image: url(../Images/ORM.png);
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+    margin-top: -10pc;
+  }
 }

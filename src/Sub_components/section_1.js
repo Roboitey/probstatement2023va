@@ -10,7 +10,7 @@ function Section_1() {
             <h1>
               <span>Start your </span>
               <br />
-              <span>Online Reputation.</span>
+              <span>Online Reputation</span>
             </h1>
           </div>
           <div className="cont-c">
