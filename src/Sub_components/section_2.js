@@ -18,13 +18,13 @@ function Section_2() {
             <div className="fp-cont-sugg">
               {card_items.map((item, key) => {
                 return (
-                  <div className="fp-cont-sugg-card">
+                  <div className="fp-cont-sugg-card" key={key}>
                     <div className="fp-cont-sugg-card-content">
                       <p>{item}</p>
                     </div>
                     <ArrowForwardIosIcon
                       sx={{ stroke: "#E1EBEE", strokeWidth: 1 }}
-                      style={{marginRight: "15px"}}
+                      style={{ marginRight: "15px" }}
                     />
                   </div>
                 );

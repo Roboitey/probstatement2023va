@@ -19,7 +19,8 @@ function NavBar() {
             {Nav_Items.map((item, key) => {
               return (
                 <li key={key}>
-                  <a aria-disabled
+                  <a
+                    aria-disabled
                     href={item.Link}
                     className={
                       window.location.pathname === item.Link ? "active" : ""
@@ -32,7 +33,10 @@ function NavBar() {
             })}
           </ul>
         </div>
-        <div className="btn-logins">
+        <div
+          className="btn-logins"
+          style={{ display: MenuOpen ? "flex" : "none" }}
+        >
           <a href="/login">
             <button className="btn-login">Login</button>
           </a>

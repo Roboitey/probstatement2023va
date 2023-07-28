@@ -21,6 +21,7 @@ html {
   height: auto;
   margin-top: 3px;
   margin-left: 130px;
+  z-index: -1;
 }
 .cont-t {
   padding: 10px;
@@ -100,6 +101,7 @@ html {
   top: 6pc;
   right: 20px;
   overflow: visible;
+  z-index: -2;
 }
 .right-img > div {
   width: 100%;
@@ -110,7 +112,7 @@ html {
   object-fit: cover;
   margin-top: -10pc;
 }
-@media (max-width: 1390px) and (min-width: 1000px) {
+@media (max-width: 1250px) and (min-width: 1000px) {
   .sec-1 {
     display: flex;
     flex-direction: row;
@@ -314,7 +316,7 @@ html {
     top: 14pc;
     right: 1px;
     overflow: visible;
-    z-index: -1;
+    z-index: -3;
   }
   .right-img > div {
     width: 100%;

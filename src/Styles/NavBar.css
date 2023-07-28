@@ -1,4 +1,3 @@
-
 html {
   --Primary-color: #284dd2;
   --Secondary-color: #3e5bc1;
@@ -23,7 +22,7 @@ html {
 .navbar-container > .logo,
 .navbar-container > .logo-off {
   width: 200px;
-  height: 95%;
+  height: 85px;
 }
 .logo > a,
 .logo-off > a {
@@ -304,10 +303,9 @@ html {
   }
   .logo-off {
     width: 200px;
-    height: 95%;
     transition: all 0s;
     position: absolute;
-    top: -244px;
+    top: 10px;
     margin-left: 20px;
   }
   .navbar-container > .navbar-links-nav {
@@ -342,24 +340,25 @@ html {
     color: var(--Secondary-color);
   }
   .btn-logins {
-    width: 200px;
-    height: 70%;
+    width: 150px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
-    gap: 20px;
+    gap: 1px;
     position: absolute;
-    border: 1px solid black;
-    display: none;
+    top: 80px;
+    right: 1px;
+    z-index: 1;
   }
   .btn-logins > a {
     outline: none;
   }
   .btn-logins > a > .btn-login {
-    width: 200px;
-    height: 70px;
+    width: 120px;
+    height: 50px;
     border-radius: 25px;
     border: 2px solid #4d5f9d;
     outline: 2px solid transparent;
@@ -369,8 +368,8 @@ html {
     background: none;
   }
   .btn-logins > a > .btn-signUp {
-    width: 200px;
-    height: 70px;
+    width: 120px;
+    height: 50px;
     border-radius: 25px;
     border: 2px solid transparent;
     color: white;

@@ -3,6 +3,7 @@ import { getProfile } from "../services/profileService";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import md5 from "blueimp-md5";
 
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
@@ -12,19 +13,32 @@ import "../Styles/Profile.css";
 function Profiles() {
   const [EditMode, setEditMode] = useState(false);
   const [user, setUser] = useState({});
-  const [About, setAbout] = useState();
+  const emailAddress = "some_exmapled@gmail.com";
   const { userId = JSON.parse(localStorage.getItem("user"))["user_id"] } =
     useParams();
   useEffect(() => {
     console.log(userId);
     getProfile(userId).then((profile) => setUser(profile["user"]));
   }, []);
+  const trimmedAndLowercased = emailAddress.trim().toLowerCase();
+  const md5Hash = md5(trimmedAndLowercased);
+  useEffect(() => {
+    console.log("https://www.gravatar.com/avatar/" + md5Hash);
+  }, [md5Hash]);
   return (
     <>
       <section className="profile-section-container">
         <div className="ps-profile-card">
-          <div className="pc-back-img" />
-          <div className="pc-profile-img" />
+          <img
+            className="pc-back-img"
+            src={"https://www.gravatar.com/avatar/" + md5Hash}
+            alt="not found"
+          />
+          <img
+            className="pc-profile-img"
+            src={"https://www.gravatar.com/avatar/" + md5Hash}
+            alt="not found"
+          />
           <button
             className="pc-edit"
             onClick={() => {

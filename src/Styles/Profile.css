@@ -24,7 +24,6 @@ html {
 .ps-profile-card > .pc-back-img {
   width: 100%;
   height: 150px;
-  background-image: url("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50");
   background-position: center;
   background-repeat: repeat-x;
   background-size: contain;
@@ -36,7 +35,6 @@ html {
   height: 160px;
   border-radius: 50%;
   border: 8px solid white;
-  background-image: url("https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,7 +63,7 @@ html {
   background-color: #e7e7e7;
   border: 1px solid var(--CTA-1);
 }
-.edit-btn-tooltip{
+.edit-btn-tooltip {
   position: absolute;
   top: -35px;
   left: -55px;
@@ -78,14 +76,14 @@ html {
   justify-content: center;
   border-radius: 5px;
   visibility: hidden;
-  transition: all 0.3s ;
+  transition: all 0.3s;
 }
-.edit-btn-tooltip > p{
+.edit-btn-tooltip > p {
   color: white;
   margin-top: 12px;
   font-size: 18px;
 }
-.pc-edit:hover .edit-btn-tooltip{
+.pc-edit:hover .edit-btn-tooltip {
   display: flex;
   visibility: visible;
 }
@@ -175,18 +173,18 @@ html {
   height: 100px;
   margin-left: 10px;
 }
-.ac-description > p{
+.ac-description > p {
   color: var(--CTA-1);
   font-size: 22px;
-  font-weight:400;
+  font-weight: 400;
 }
-.ps-about-card > .ac-description-edit{
+.ps-about-card > .ac-description-edit {
   width: 75%;
   height: 110px;
   margin-left: 10px;
   margin-top: -10px;
 }
-.ac-description-edit > textarea{
+.ac-description-edit > textarea {
   border: 1px solid black;
   height: 100%;
   width: 100%;
@@ -197,14 +195,14 @@ html {
   transition: all 0.4s ease;
   resize: none;
 }
-.edit-submit-btn{
-  width:300px;
+.edit-submit-btn {
+  width: 300px;
   height: 50px;
   position: fixed;
   top: 6pc;
   right: 320px;
 }
-.edit-submit-btn > button{
+.edit-submit-btn > button {
   width: 100%;
   height: 100%;
   background-color: transparent;
@@ -214,10 +212,9 @@ html {
   transition: all 0.4s ease;
   border-radius: 2px;
 }
-.edit-submit-btn > button:hover{
+.edit-submit-btn > button:hover {
   border: 2px solid transparent;
   border-radius: 12px;
   color: white;
   background-color: #4caf50;
 }
-
