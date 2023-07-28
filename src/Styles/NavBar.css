@@ -116,7 +116,8 @@ html {
 .navbar-container > .navbar-links-off > ul > li > a.active:focus {
   outline: 2px solid var(--Primary-color);
 }
-.btn-logins {
+.btn-logins,
+.btn-logins-off {
   width: 250px;
   height: 100%;
   display: flex;
@@ -125,10 +126,11 @@ html {
   justify-content: space-evenly;
   align-items: center;
 }
-.btn-logins > a {
+.btn-logins > a,.btn-logins-off > a {
   outline: none;
 }
-.btn-logins > a > .btn-login {
+.btn-logins > a > .btn-login,
+.btn-logins-off > a > .btn-login  {
   width: 100px;
   height: 50px;
   border-radius: 25px;
@@ -139,14 +141,17 @@ html {
   transition: all 0.2s;
   background: none;
 }
-.btn-logins > a > .btn-login:focus {
+.btn-logins > a > .btn-login:focus,
+.btn-logins-off > a > .btn-login:focus {
   outline: 2px solid var(--CTA-1);
 }
-.btn-logins > a > .btn-login:hover {
+.btn-logins > a > .btn-login:hover,
+.btn-logins-off > a > .btn-login:hover {
   cursor: pointer;
   border: 2px solid #4d5f9d;
 }
-.btn-logins > a > .btn-signUp {
+.btn-logins > a > .btn-signUp,
+.btn-logins-off > a > .btn-signUp  {
   width: 100px;
   height: 50px;
   border-radius: 25px;
@@ -156,7 +161,8 @@ html {
   transition: all 0.5s ease;
   background: var(--Primary-color);
 }
-.btn-logins > a > .btn-signUp:hover {
+.btn-logins > a > .btn-signUp:hover,
+.btn-logins-off > a > .btn-signUp:hover {
   cursor: pointer;
   background: var(--Third-color);
 }
@@ -236,7 +242,8 @@ html {
     color: var(--CTA-1);
     text-shadow: none;
   }
-  .btn-logins {
+  .btn-logins,
+  .btn-logins-off  {
     width: 250px;
     height: 60px;
     display: flex;
@@ -250,10 +257,12 @@ html {
     border: none;
     border-radius: 15px;
   }
-  .btn-logins > a {
+  .btn-logins > a,
+  .btn-logins-off > a  {
     outline: none;
   }
-  .btn-logins > a > .btn-login {
+  .btn-logins > a > .btn-login,
+  .btn-logins-off > a > .btn-login {
     width: 100px;
     height: 50px;
     border-radius: 25px;
@@ -263,10 +272,11 @@ html {
     transition: all 0.2s;
     background: white;
   }
-  .btn-logins > a > .btn-login:focus {
+  .btn-logins > a > .btn-login:focus,
+  .btn-logins-off > a > .btn-login:focus  {
     outline: 2px solid var(--CTA-1);
   }
-  .btn-logins > a > .btn-signUp {
+  .btn-logins > a > .btn-signUp,.btn-logins-off > a > .btn-signUp {
     width: 100px;
     height: 50px;
     border-radius: 25px;
@@ -276,7 +286,7 @@ html {
     transition: all 0.5s ease;
     background: var(--Primary-color);
   }
-  .btn-logins > a > .btn-signUp:hover {
+  .btn-logins > a > .btn-signUp:hover,.btn-logins-off > a > .btn-signUp:hover {
     cursor: pointer;
     background: var(--Third-color);
   }
@@ -339,6 +349,10 @@ html {
     pointer-events: none;
     color: var(--Secondary-color);
   }
+  .btn-logins-off{
+    display: none;
+    visibility: hidden;
+  }
   .btn-logins {
     width: 150px;
     height: 150px;
@@ -352,6 +366,7 @@ html {
     top: 80px;
     right: 1px;
     z-index: 1;
+    visibility: visible;
   }
   .btn-logins > a {
     outline: none;

@@ -34,8 +34,7 @@ function NavBar() {
           </ul>
         </div>
         <div
-          className="btn-logins"
-          style={{ display: MenuOpen ? "flex" : "none" }}
+          className={MenuOpen ? "btn-logins" : "btn-logins-off"}
         >
           <a href="/login">
             <button className="btn-login">Login</button>

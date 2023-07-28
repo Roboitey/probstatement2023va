@@ -14,7 +14,7 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    LoginSystem(username, password)
+    LoginSystem(username, password);
   };
   return (
     <form onSubmit={handleSubmit} className="form-login">
@@ -46,21 +46,24 @@ function Login() {
           placeholder="Password"
         />
         {passwordType ? (
-          <VisibilityOffIcon
-            className="visibility-icon"
-            fontSize="medium"
-            onClick={() => {
-              setPasswordType(!passwordType);
-            }}
-          />
+          <button className="visibility-icon">
+            <VisibilityOffIcon
+              className="visibility-icon"
+              fontSize="medium"
+              onClick={() => {
+                setPasswordType(!passwordType);
+              }}
+            />
+          </button>
         ) : (
-          <VisibilityIcon
-            className="visibility-icon"
-            fontSize="medium"
-            onClick={() => {
-              setPasswordType(!passwordType);
-            }}
-          />
+          <button className="visibility-icon">
+            <VisibilityIcon
+              fontSize="medium"
+              onClick={() => {
+                setPasswordType(!passwordType);
+              }}
+            />
+          </button>
         )}
       </div>
       <button type="submit" className="submit-btn">
