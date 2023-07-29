@@ -8,7 +8,7 @@ function AdvancedExample() {
   const [opportunities, setOpportunities] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const opportunitiesPerPage = 6; // Number of opportunities to display per page
+  const opportunitiesPerPage = 5; // Number of opportunities to display per page
 
   useEffect(() => {
     getOpportunity().then((data) => {
@@ -63,7 +63,7 @@ function AdvancedExample() {
   return (
     <div className="opportunity-container">
       <div className="opportunity-header">
-        <h2 className="opportunity-title">Opportunities..</h2>
+        <h2 className="opportunity-title">Opportunities: </h2>
         <input
           type="text"
           placeholder="Search..."
