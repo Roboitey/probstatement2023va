@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserEdit } from "../services/userService";
-import md5 from "blueimp-md5";
+import md5 from 'blueimp-md5'
 
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
