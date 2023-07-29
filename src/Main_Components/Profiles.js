@@ -3,7 +3,7 @@ import { getProfile } from "../services/profileService";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import md5 from "blueimp-md5";
+import md5 from 'blueimp-md5'
 
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
@@ -20,11 +20,7 @@ function Profiles() {
     console.log(userId);
     getProfile(userId).then((profile) => setUser(profile["user"]));
   }, []);
-  const trimmedAndLowercased = emailAddress.trim().toLowerCase();
-  const md5Hash = md5(trimmedAndLowercased);
-  useEffect(() => {
-    console.log("https://www.gravatar.com/avatar/" + md5Hash);
-  }, [md5Hash]);
+  const md5Hash = md5(emailAddress);
   return (
     <>
       <section className="profile-section-container">
