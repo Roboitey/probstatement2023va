@@ -3,6 +3,7 @@ import { getProfile } from "../services/profileService";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { UserEdit } from "../services/userService";
 import md5 from 'blueimp-md5'
 
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
@@ -13,26 +14,56 @@ import "../Styles/Profile.css";
 function Profiles() {
   const [EditMode, setEditMode] = useState(false);
   const [user, setUser] = useState({});
-  const emailAddress = "some_exmapled@gmail.com";
+  const [about, setAbout] = useState("");
+  const [Experience, setExperience] = useState([]);
+  const [Education, setEducation] = useState([]);
+  const [Volunteering, setVolunteering] = useState([]);
+  const [Skills, setSkills] = useState([]);
   const { userId = JSON.parse(localStorage.getItem("user"))["user_id"] } =
     useParams();
   useEffect(() => {
     console.log(userId);
-    getProfile(userId).then((profile) => setUser(profile["user"]));
+    getProfile(userId).then((profile) => {
+      setUser(profile["user"]);
+      setAbout(profile.user.about);
+      setExperience(profile.user.Experience);
+      setEducation(profile.user.Education);
+      setVolunteering(profile.user.Volunteering);
+      setSkills(profile.user.Skills);
+    });
   }, []);
-  const md5Hash = md5(emailAddress);
+  const applyChanges = () => {
+    console.log("test");
+    UserEdit(userId, about, Experience, Education, Volunteering, Skills);
+    setEditMode(false);
+    setUser({
+      ...user,
+      sections: {
+        about: about,
+        experience: [Experience],
+        education: [Education],
+        volunteering: [Volunteering],
+        skills: [Skills],
+      },
+    });
+  };
+
   return (
     <>
       <section className="profile-section-container">
         <div className="ps-profile-card">
           <img
             className="pc-back-img"
-            src={"https://www.gravatar.com/avatar/" + md5Hash}
+            src={
+              "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+            }
             alt="not found"
           />
           <img
             className="pc-profile-img"
-            src={"https://www.gravatar.com/avatar/" + md5Hash}
+            src={
+              "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+            }
             alt="not found"
           />
           <button
@@ -78,115 +109,162 @@ function Profiles() {
             </div>
           </div>
         </div>
-        <div className="ps-about-card">
-          <div className="about-card">
-            <h1>About</h1>
-          </div>
-          <div className="ac-name">
-            <h5>
-              {user["username"]} <span>&#183;</span> {user["type"]}
-            </h5>
-          </div>
-          {EditMode ? (
-            <div className="ac-description-edit">
-              <textarea type="text" placeholder="Education">
-                {user.sections?.about}
-              </textarea>
+        {EditMode || user.sections?.about !== {} ? (
+          <div className="ps-about-card">
+            <div className="about-card">
+              <h1>About</h1>
             </div>
-          ) : (
-            <div className="ac-description">
-              <p>{user.sections?.about}</p>
+            <div className="ac-name">
+              <h5>
+                {user["username"]} <span>&#183;</span> {user["type"]}
+              </h5>
             </div>
-          )}
-        </div>
-        <div className="ps-about-card">
-          <div className="about-card">
-            <h1>Experience</h1>
+            {EditMode ? (
+              <div className="ac-description-edit">
+                <textarea
+                  type="text"
+                  placeholder="About"
+                  onChange={(e) => {
+                    setAbout(e.target.value);
+                  }}
+                  value={about}
+                >
+                  {user.sections?.about}
+                </textarea>
+              </div>
+            ) : (
+              <div className="ac-description">
+                <p>{user.sections?.about}</p>
+              </div>
+            )}
           </div>
-          <div className="ac-name">
-            <h5>
-              {user["username"]} <span>&#183;</span> {user["type"]}
-            </h5>
+        ) : null}
+        ;
+        {EditMode || user.sections?.experience.length > 0 ? (
+          <div className="ps-about-card">
+            <div className="about-card">
+              <h1>Experience</h1>
+            </div>
+            <div className="ac-name">
+              <h5>
+                {user["username"]} <span>&#183;</span> {user["type"]}
+              </h5>
+            </div>
+            {EditMode ? (
+              <div className="ac-description-edit">
+                <textarea
+                  type="text"
+                  placeholder="About"
+                  onChange={(e) => {
+                    setExperience(e.target.value);
+                  }}
+                  value={Experience}
+                >
+                  {user.sections?.experience[0]}
+                </textarea>
+              </div>
+            ) : (
+              <div className="ac-description">
+                <p>{user.sections?.experience[0]}</p>
+              </div>
+            )}
           </div>
-          {EditMode ? (
-            <div className="ac-description-edit">
-              <textarea type="text" placeholder="About">
-                {user.sections?.experience}
-              </textarea>
+        ) : null}
+        {EditMode || user.sections?.education.length > 0 ? (
+          <div className="ps-about-card">
+            <div className="about-card">
+              <h1>Education</h1>
             </div>
-          ) : (
-            <div className="ac-description">
-              <p>{user.sections?.experience}</p>
+            <div className="ac-name">
+              <h5>
+                {user["username"]} <span>&#183;</span> {user["type"]}
+              </h5>
             </div>
-          )}
-        </div>
-        <div className="ps-about-card">
-          <div className="about-card">
-            <h1>Education</h1>
+            {EditMode ? (
+              <div className="ac-description-edit">
+                <textarea
+                  type="text"
+                  placeholder="Education"
+                  onChange={(e) => {
+                    setEducation(e.target.value);
+                  }}
+                  value={Education}
+                >
+                  {user.sections?.education}
+                </textarea>
+              </div>
+            ) : (
+              <div className="ac-description">
+                <p>{user.sections?.education}</p>
+              </div>
+            )}
           </div>
-          <div className="ac-name">
-            <h5>
-              {user["username"]} <span>&#183;</span> {user["type"]}
-            </h5>
+        ) : null}
+        ;
+        {EditMode || user.sections?.volunteering.length > 0 ? (
+          <div className="ps-about-card">
+            <div className="about-card">
+              <h1>Volunteering</h1>
+            </div>
+            <div className="ac-name">
+              <h5>
+                {user["username"]} <span>&#183;</span> {user["type"]}
+              </h5>
+            </div>
+            {EditMode ? (
+              <div className="ac-description-edit">
+                <textarea
+                  type="text"
+                  placeholder="Volunteering"
+                  onChange={(e) => setVolunteering(e.target.value)}
+                  value={Volunteering}
+                >
+                  {user.sections?.volunteering}
+                </textarea>
+              </div>
+            ) : (
+              <div className="ac-description">
+                <p>{user.sections?.volunteering}</p>
+              </div>
+            )}
           </div>
-          {EditMode ? (
-            <div className="ac-description-edit">
-              <textarea type="text" placeholder="Education">
-                {user.sections?.education}
-              </textarea>
+        ) : null}
+        ;
+        {EditMode || user.sections?.volunteering.length > 0 ? (
+          <div className="ps-about-card">
+            <div className="about-card">
+              <h1>Skills</h1>
             </div>
-          ) : (
-            <div className="ac-description">
-              <p>{user.sections?.education}</p>
+            <div className="ac-name">
+              <h5>
+                {user["username"]} <span>&#183;</span> {user["type"]}
+              </h5>
             </div>
-          )}
-        </div>
-        <div className="ps-about-card">
-          <div className="about-card">
-            <h1>Volunteering</h1>
+            {EditMode ? (
+              <div className="ac-description-edit">
+                <textarea
+                  type="text"
+                  placeholder="Skills"
+                  onChange={(e) => setSkills(e.target.value)}
+                  value={Skills}
+                >
+                  {user.sections?.skills}
+                </textarea>
+              </div>
+            ) : (
+              <div className="ac-description">
+                <p>{user.sections?.skills}</p>
+              </div>
+            )}
           </div>
-          <div className="ac-name">
-            <h5>
-              {user["username"]} <span>&#183;</span> {user["type"]}
-            </h5>
-          </div>
-          {EditMode ? (
-            <div className="ac-description-edit">
-              <textarea type="text" placeholder="Volunteering">
-                {user.sections?.volunteering}
-              </textarea>
-            </div>
-          ) : (
-            <div className="ac-description">
-              <p>{user.sections?.volunteering}</p>
-            </div>
-          )}
-        </div>
-        <div className="ps-about-card">
-          <div className="about-card">
-            <h1>Skills</h1>
-          </div>
-          <div className="ac-name">
-            <h5>
-              {user["username"]} <span>&#183;</span> {user["type"]}
-            </h5>
-          </div>
-          {EditMode ? (
-            <div className="ac-description-edit">
-              <textarea type="text" placeholder="Skills">
-                {user.sections?.skills}
-              </textarea>
-            </div>
-          ) : (
-            <div className="ac-description">
-              <p>{user.sections?.skills}</p>
-            </div>
-          )}
-        </div>
+        ) : null}
+        ;
       </section>
       {EditMode ? (
         <div className="edit-submit-btn">
-          <button type="button">Apply Changes</button>
+          <button type="button" onClick={applyChanges}>
+            Apply Changes
+          </button>
         </div>
       ) : (
         ""
