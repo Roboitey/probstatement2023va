@@ -66,7 +66,7 @@ function AdvancedExample() {
   return (
     <div className="opportunity-container">
       <div className="opportunity-header">
-        <h2 className="opportunity-title">Opportunities..</h2>
+        <h2 className="opportunity-title">Opportunities: </h2>
         <input
           type="text"
           placeholder="Search..."
