@@ -8,7 +8,7 @@ function AdvancedExample() {
   const [opportunities, setOpportunities] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const opportunitiesPerPage = 6; // Number of opportunities to display per page
+  const opportunitiesPerPage = 5; // Number of opportunities to display per page
 
   useEffect(() => {
     getOpportunity().then((data) => {
@@ -56,9 +56,12 @@ function AdvancedExample() {
         </Pagination.Item>
       );
     }
-
     return items;
   };
+  const searchPaginationItems = (e) => {
+    setSearchTerm(e.target.value)
+    setCurrentPage(1)
+  }
 
   return (
     <div className="opportunity-container">
@@ -69,7 +72,7 @@ function AdvancedExample() {
           placeholder="Search..."
           className="opportunity-search"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={searchPaginationItems}
         />
       </div>
       <div className="opportunity-content">

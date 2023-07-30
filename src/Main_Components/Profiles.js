@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserEdit } from "../services/userService";
-import md5 from 'blueimp-md5'
+import SectionInputs from "../Sub_components/sectionInputs";
+import md5 from "blueimp-md5";
 
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
@@ -12,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import "../Styles/Profile.css";
 
 function Profiles() {
+  //64a5685eb514057de4e2d42d
   const [EditMode, setEditMode] = useState(false);
   const [user, setUser] = useState({});
   const [about, setAbout] = useState("");
@@ -19,21 +21,22 @@ function Profiles() {
   const [Education, setEducation] = useState([]);
   const [Volunteering, setVolunteering] = useState([]);
   const [Skills, setSkills] = useState([]);
+  const [numInputFields, setNumInputFields] = useState(1);
   const { userId = JSON.parse(localStorage.getItem("user"))["user_id"] } =
     useParams();
   useEffect(() => {
     console.log(userId);
     getProfile(userId).then((profile) => {
       setUser(profile["user"]);
-      setAbout(profile.user.about);
-      setExperience(profile.user.Experience);
-      setEducation(profile.user.Education);
-      setVolunteering(profile.user.Volunteering);
-      setSkills(profile.user.Skills);
+      setAbout(profile.user.sections?.about);
+      setExperience(profile.user.sections?.experience);
+      setEducation(profile.user.sections?.education);
+      setVolunteering(profile.user.sections?.volunteering);
+      setSkills(profile.user.sections?.skills);
     });
   }, []);
   const applyChanges = () => {
-    console.log("test");
+    console.log(Education);
     UserEdit(userId, about, Experience, Education, Volunteering, Skills);
     setEditMode(false);
     setUser({
@@ -46,6 +49,11 @@ function Profiles() {
         skills: [Skills],
       },
     });
+  };
+
+  const handleAddInput = () => {
+    // Increase the number of input fields by 1
+    setNumInputFields((prevNum) => prevNum + 1);
   };
 
   return (
@@ -89,7 +97,6 @@ function Profiles() {
               <p>{EditMode ? "Exit" : "Enter"} edit mode</p>
             </div>
           </button>
-
           <div className="pc-information">
             <div className="pc-info-name">
               <h1>{user["username"]}</h1>
@@ -110,7 +117,10 @@ function Profiles() {
           </div>
         </div>
         {EditMode || user.sections?.about !== {} ? (
-          <div className="ps-about-card">
+          <div
+            className="ps-about-card"
+            style={{ height: EditMode ? "18pc" : "22pc" }}
+          >
             <div className="about-card">
               <h1>About</h1>
             </div>
@@ -139,7 +149,6 @@ function Profiles() {
             )}
           </div>
         ) : null}
-        ;
         {EditMode || user.sections?.experience.length > 0 ? (
           <div className="ps-about-card">
             <div className="about-card">
@@ -152,20 +161,58 @@ function Profiles() {
             </div>
             {EditMode ? (
               <div className="ac-description-edit">
-                <textarea
-                  type="text"
-                  placeholder="About"
-                  onChange={(e) => {
-                    setExperience(e.target.value);
-                  }}
-                  value={Experience}
-                >
-                  {user.sections?.experience[0]}
-                </textarea>
+                {user.sections?.experience.map((item, key) => {
+                  return (
+                    <>
+                      <SectionInputs
+                        type="experience"
+                        values={item}
+                        setValues={setExperience}
+                        key={key}
+                        id={key}
+                      />
+                    </>
+                  );
+                })}
+                <SectionInputs
+                  type="experience"
+                  values={{}}
+                  setValues={setExperience}
+                  key={user.sections?.experience.length + 1}
+                  id={user.sections?.experience.length + 1}
+                />
               </div>
             ) : (
               <div className="ac-description">
-                <p>{user.sections?.experience[0]}</p>
+                {user.sections?.experience.map((item, key) => {
+                  return (
+                    <>
+                      <p>
+                        Title: <strong>{item.title}</strong>
+                      </p>
+                      <p>
+                        Location: <strong>{item.location}</strong>
+                      </p>
+                      <p>
+                        Start At:
+                        <strong>
+                          {new Date(item.startedAt).toDateString()}
+                        </strong>
+                      </p>
+                      <p>
+                        Ended At:
+                        <strong>
+                          {item.endedAt
+                            ? new Date(item.endedAt).toDateString()
+                            : "Present"}
+                        </strong>
+                      </p>
+                      <p>
+                        Description: <strong>{item.description}</strong>
+                      </p>
+                    </>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -182,25 +229,62 @@ function Profiles() {
             </div>
             {EditMode ? (
               <div className="ac-description-edit">
-                <textarea
-                  type="text"
-                  placeholder="Education"
-                  onChange={(e) => {
-                    setEducation(e.target.value);
-                  }}
-                  value={Education}
-                >
-                  {user.sections?.education}
-                </textarea>
+                {user.sections?.education.map((item, key) => {
+                  return (
+                    <>
+                      <SectionInputs
+                        type="education"
+                        values={item}
+                        setValues={setEducation}
+                        key={key}
+                        id={key}
+                      />
+                    </>
+                  );
+                })}
+                <SectionInputs
+                  type="education"
+                  values={{}}
+                  setValues={setEducation}
+                  key={user.sections?.education.length + 1}
+                  id={user.sections?.education.length + 1}
+                />
               </div>
             ) : (
               <div className="ac-description">
-                <p>{user.sections?.education}</p>
+                {user.sections?.education.map((item, key) => {
+                  return (
+                    <>
+                      <p>
+                        Title: <strong>{item.title}</strong>
+                      </p>
+                      <p>
+                        Location: <strong>{item.location}</strong>
+                      </p>
+                      <p>
+                        Start At:
+                        <strong>
+                          {new Date(item.startedAt).toDateString()}
+                        </strong>
+                      </p>
+                      <p>
+                        Ended At:
+                        <strong>
+                          {item.endedAt
+                            ? new Date(item.endedAt).toDateString()
+                            : "Present"}
+                        </strong>
+                      </p>
+                      <p>
+                        Description: <strong>{item.description}</strong>
+                      </p>
+                    </>
+                  );
+                })}
               </div>
             )}
           </div>
         ) : null}
-        ;
         {EditMode || user.sections?.volunteering.length > 0 ? (
           <div className="ps-about-card">
             <div className="about-card">
@@ -213,24 +297,50 @@ function Profiles() {
             </div>
             {EditMode ? (
               <div className="ac-description-edit">
-                <textarea
-                  type="text"
-                  placeholder="Volunteering"
-                  onChange={(e) => setVolunteering(e.target.value)}
-                  value={Volunteering}
-                >
-                  {user.sections?.volunteering}
-                </textarea>
+                {user.sections?.volunteering.map((item, key) => {
+                  return (
+                    <>
+                      <SectionInputs
+                        type="volunteering"
+                        values={item}
+                        setValues={setVolunteering}
+                        key={key}
+                        id={key}
+                      />
+                    </>
+                  );
+                })}
+                <SectionInputs
+                  type="volunteering"
+                  values={{}}
+                  setValues={setVolunteering}
+                  key={user.sections?.volunteering.length + 1}
+                  id={user.sections?.volunteering.length + 1}
+                />
               </div>
             ) : (
               <div className="ac-description">
-                <p>{user.sections?.volunteering}</p>
+                {user.sections?.volunteering.map((item, key) => {
+                  return (
+                    <>
+                      <p>Title: {item.title}</p>
+                      <p>Location: {item.location}</p>
+                      <p>Start At: {new Date(item.startedAt).toDateString()}</p>
+                      <p>
+                        Ended At:{" "}
+                        {item.endedAt
+                          ? new Date(item.endedAt).toDateString()
+                          : "Present"}
+                      </p>
+                      <p>Description: {item.description}</p>
+                    </>
+                  );
+                })}{" "}
               </div>
             )}
           </div>
         ) : null}
-        ;
-        {EditMode || user.sections?.volunteering.length > 0 ? (
+        {EditMode || user.sections?.skills.length > 0 ? (
           <div className="ps-about-card">
             <div className="about-card">
               <h1>Skills</h1>
@@ -242,23 +352,33 @@ function Profiles() {
             </div>
             {EditMode ? (
               <div className="ac-description-edit">
-                <textarea
-                  type="text"
-                  placeholder="Skills"
-                  onChange={(e) => setSkills(e.target.value)}
-                  value={Skills}
-                >
-                  {user.sections?.skills}
-                </textarea>
+                {user.sections?.skills.map((item, key) => {
+                  return <input key={key} index={key} value={item} />;
+                })}
+                {Array.from({ length: numInputFields }, (_, index) => (
+                  <input
+                    key={index}
+                    type="text"
+                    placeholder={`Skill ${index + 1}`}
+                  />
+                ))}
+                <button onClick={handleAddInput}>Add new Skill</button>
               </div>
             ) : (
               <div className="ac-description">
-                <p>{user.sections?.skills}</p>
+                <ul>
+                  {user.sections?.skills.map((item, key) => {
+                    return (
+                      <li key={key} index={key}>
+                        Skill {key + 1}: <strong>{item}</strong>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             )}
           </div>
         ) : null}
-        ;
       </section>
       {EditMode ? (
         <div className="edit-submit-btn">
@@ -266,9 +386,7 @@ function Profiles() {
             Apply Changes
           </button>
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
     </>
   );
 }

@@ -4,6 +4,7 @@ html {
   --Third-color: #4d5f9d;
   --CTA-1: #08102b;
   --CTA-2: #393e51;
+  --about_height: auto;
 }
 .profile-section-container {
   width: 98.5%;
@@ -139,17 +140,19 @@ html {
 }
 .profile-section-container > .ps-about-card {
   width: 50%;
-  height: 15pc;
+  height: 22pc;
   margin-top: 10px;
   margin-left: 145px;
   border-radius: 20px;
   box-shadow: 3px 5px 10px 1px #000;
   overflow: hidden;
+  overflow-y: scroll;
+  transition: all 0.4s ease;
 }
 .ps-about-card > .about-card {
   font-size: 45px;
   margin-left: 10px;
-  margin-top: 20px;
+  margin-top: 6px;
 }
 .about-card > h1 {
   color: var(--CTA-1);
@@ -170,17 +173,26 @@ html {
 }
 .ps-about-card > .ac-description {
   width: 90%;
-  height: 100px;
+  height: auto;
   margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: -11px;
 }
 .ac-description > p {
   color: var(--CTA-1);
   font-size: 22px;
   font-weight: 400;
 }
+.ac-description > ul > li {
+  list-style: none;
+  list-style-type: none;
+  text-transform: capitalize;
+  margin-left: -30px;
+  font-size: 20px;
+}
 .ps-about-card > .ac-description-edit {
-  width: 75%;
-  height: 110px;
+  width: 90%;
+  height: 150px;
   margin-left: 10px;
   margin-top: -10px;
 }
@@ -194,6 +206,8 @@ html {
   background-color: transparent;
   transition: all 0.4s ease;
   resize: none;
+  font-size: 19px;
+  padding: 5px;
 }
 .edit-submit-btn {
   width: 300px;
