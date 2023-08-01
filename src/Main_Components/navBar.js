@@ -20,7 +20,6 @@ function NavBar() {
               return (
                 <li key={key}>
                   <a
-                    aria-disabled
                     href={item.Link}
                     className={
                       window.location.pathname === item.Link ? "active" : ""
@@ -31,18 +30,44 @@ function NavBar() {
                 </li>
               );
             })}
+
+            {localStorage.getItem("user") &&
+              JSON.parse(localStorage.getItem("user"))["type"] === "administrator" && (
+                <li>
+                  <a
+                    href="/admin"
+                    className={
+                      window.location.pathname === "/admin" ? "active" : ""
+                    }
+                  >
+                    Admin
+                  </a>
+                </li>
+              )}
           </ul>
         </div>
-        <div
-          className={MenuOpen ? "btn-logins" : "btn-logins-off"}
-        >
-          <a href="/login">
-            <button className="btn-login">Login</button>
+        {localStorage.getItem("user") ? (
+          <a href="/">
+            <div className="btn-logins">
+              <button
+                onClick={() => {
+                  localStorage.removeItem("user");
+                }}
+              >
+                Log Out
+              </button>
+            </div>
           </a>
-          <a href="/sign-up">
-            <button className="btn-signUp">Sign up</button>
-          </a>
-        </div>
+        ) : (
+          <div className={MenuOpen ? "btn-logins" : "btn-logins-off"}>
+            <a href="/login">
+              <button className="btn-login">Login</button>
+            </a>
+            <a href="/sign-up">
+              <button className="btn-signUp">Sign up</button>
+            </a>
+          </div>
+        )}
       </nav>
       <button
         className="menu-btn"

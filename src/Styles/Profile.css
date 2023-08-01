@@ -13,6 +13,7 @@ html {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 50px;
+  transition: all 0.3s;
 }
 .profile-section-container > .ps-profile-card {
   width: 50%;
@@ -31,7 +32,16 @@ html {
   object-fit: contain;
   border-radius: inherit;
 }
-.ps-profile-card > .pc-profile-img {
+.pc-middle-part {
+  width: 100%;
+  height: 160px;
+  margin-top: -5.5pc;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.pc-profile-img {
   width: 160px;
   height: 160px;
   border-radius: 50%;
@@ -40,19 +50,16 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
-  margin-top: -70px;
-  margin-left: 40px;
+  margin-left: 50px;
 }
+
 .pc-edit {
-  position: absolute;
   width: 45px;
   height: 45px;
   display: flex;
   border: 1px solid transparent;
   justify-content: center;
   align-items: center;
-  top: 15.5pc;
-  left: 52pc;
   transition: all 0.2s ease;
   background-color: transparent;
   border-radius: 50%;
@@ -115,7 +122,7 @@ html {
   height: 27px;
   width: 180%;
 }
-.pc-info-email > p {
+.pc-info-email > div > p {
   font-size: 20px;
 }
 .pc-info-email_type > .pc-info-type {
@@ -191,14 +198,32 @@ html {
   font-size: 20px;
 }
 .ps-about-card > .ac-description-edit {
-  width: 90%;
-  height: 150px;
+  width: 89%;
+  height: 170px;
   margin-left: 10px;
   margin-top: -10px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: start;
+  justify-content: start;
+  align-content: flex-start;
+  gap: 20px;
+}
+.skill-edit {
+  width: 89%;
+  height: 170px;
+  margin-left: 10px;
+  margin-top: -10px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: start;
+  justify-content: start;
+  align-content: flex-start;
+  gap: 10px;
 }
 .ac-description-edit > textarea {
   border: 1px solid black;
-  height: 100%;
+  height: 160px;
   width: 100%;
   padding: 2px;
   outline: none;
@@ -208,6 +233,47 @@ html {
   resize: none;
   font-size: 19px;
   padding: 5px;
+}
+.ac-description-edit-skill-input {
+  border: 1px solid black;
+  padding: 2px;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  height: 30px;
+}
+.ac-description-edit-input-cont {
+  width: 40%;
+  height: auto;
+  padding: 5px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid black;
+}
+.ac-description-edit-btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  align-self: flex-end;
+  padding-bottom: 5px;
+}
+.ac-description-edit-btn > button {
+  background-color: var(--Primary-color);
+  color: white;
+  font-size: 18px;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  transition: all 0.4s;
+  width: 200px;
+  height: 95%;
+}
+.ac-description-edit-btn > button:hover {
+  background-color: transparent;
+  border: 2px solid var(--Primary-color);
+  color: black;
 }
 .edit-submit-btn {
   width: 300px;
@@ -231,4 +297,74 @@ html {
   border-radius: 12px;
   color: white;
   background-color: #4caf50;
+}
+@media (max-width: 1000px) and (min-width: 760px) {
+  .profile-section-container {
+    width: 98.5%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    transition: all 0.3s;
+  }
+  .profile-section-container > .ps-profile-card {
+    width: 60%;
+    margin-left: 30px;
+  }
+  .profile-section-container > .ps-about-card {
+    width: 60%;
+    margin-left: 30px;
+  }
+}
+@media (max-width: 760px) and (min-width: 650px){
+  .profile-section-container {
+    width: 98.5%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+    position: absolute;
+    top: 120px;
+    transition: all 0.3s;
+    border: 3px solid black;
+  }
+  .profile-section-container > .ps-profile-card {
+    width: 70%;
+    margin-left: 30px;
+  }
+  .profile-section-container > .ps-about-card {
+    width: 70%;
+    margin-left: 30px;
+  }
+}
+@media (max-width: 650px) and (min-width: 100px){
+  .profile-section-container {
+    width: 98.5%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+    position: absolute;
+    top: 120px;
+    transition: all 0.3s;
+    border: 3px solid black;
+  }
+  .profile-section-container > .ps-profile-card {
+    width: 70%;
+    margin-left: 30px;
+  }
+  .profile-section-container > .ps-about-card {
+    width: 70%;
+    margin-left: 30px;
+  }
+  .pc-info-email > div > p {
+    font-size: 17px;
+  }
+  .pc-info-email > p > strong{
+
+  }
 }

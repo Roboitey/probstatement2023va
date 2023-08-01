@@ -1,9 +1,11 @@
 import React from "react";
 import "../Styles/forgotPassword.css";
 import { useState } from "react";
+import { ChangePassword } from "../services/LoginService";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -16,6 +18,7 @@ function ForgotPassword() {
       } else {
         console.log("Password changed");
         setError("");
+        ChangePassword(username, password);
       }
     } else {
       console.log("Recovery email has been sent to " + email);
@@ -47,6 +50,17 @@ function ForgotPassword() {
     <div className="reset-password">
       <h1>Set New Password</h1>
       <form onSubmit={handleSubmit} className="reset-password-form">
+        <div className="reset-password-form-cont">
+          <label>Username: </label>
+          <input
+            type="text"
+            name="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          ></input>
+        </div>
         <div className="reset-password-form-cont">
           <label for="password" placeholder="enter...">
             Password:

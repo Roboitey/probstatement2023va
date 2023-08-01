@@ -28,10 +28,10 @@ export function UserEdit(
     body: JSON.stringify({
       sections: {
         about: about,
-        experience: [Experience]    ,
-        education: [Education],
-        volunteering: [Volunteering],
-        skills: [Skills],
+        experience: Experience,
+        education: Education,
+        volunteering: Volunteering,
+        skills: Skills,
       },
     }),
   };

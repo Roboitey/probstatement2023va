@@ -11,10 +11,6 @@ const Nav_Items = [
     title: "Opportunity",
     Link: "/opportunity",
   },
-  {
-    title: "Admin",
-    Link: "/admin",
-  },
 ];
 
 export default Nav_Items;

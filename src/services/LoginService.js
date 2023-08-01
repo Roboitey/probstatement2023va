@@ -53,35 +53,44 @@ const deriveKeyFromPassword = async (passwordString, saltBuffer) => {
   return { keyString, saltString };
 };
 export function LoginSystem(Username, Password) {
-  getUser(Username).then((user) => {
-    const salt = convertHexToBuffer(user["user"]["salt"]);
-    const userid = user["user"]["user_id"];
-    deriveKeyFromPassword(Password, salt).then((key) => {
-      const requestOptions = {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer 0986ce94-fa35-49b9-a7cc-a631322aa384",
-        },
-        body: JSON.stringify({
-          key: key["keyString"],
-        }),
-      };
-      return fetch(
-        "https://inbdpa.api.hscc.bdpa.org/v1/users/" + userid + "/auth",
-        requestOptions
-      ).then((res) => {
-        res.json().then((data) => {
-          console.log(data)
-          if (data["success"]) {
-            console.log()
-            localStorage.setItem("user", JSON.stringify(user["user"]));
-          }
-          
+  return getUser(Username).then(
+    (user) => {
+      if (user.success) {
+        const salt = convertHexToBuffer(user["user"]["salt"]);
+        const userid = user["user"]["user_id"];
+        return deriveKeyFromPassword(Password, salt).then((key) => {
+          const requestOptions = {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer 0986ce94-fa35-49b9-a7cc-a631322aa384",
+            },
+            body: JSON.stringify({
+              key: key["keyString"],
+            }),
+          };
+          return fetch(
+            "https://inbdpa.api.hscc.bdpa.org/v1/users/" + userid + "/auth",
+            requestOptions
+          ).then((res) => {
+            return res.json().then((data) => {
+              console.log(data);
+              if (data["success"]) {
+                console.log();
+                localStorage.setItem("user", JSON.stringify(user["user"]));
+              } else {
+                console.log(data);
+              }
+              return data;
+            });
+          });
         });
-      });
-    });
-  });
+      }
+    },
+    (error) => {
+      return error;
+    }
+  );
 }
 export function SignUpSystem(username, email, password) {
   return deriveKeyFromPassword(password).then((data) => {
@@ -107,6 +116,41 @@ export function SignUpSystem(username, email, password) {
     });
   });
 }
+export function ChangePassword(username, password) {
+  return getUser(username).then((user) => {
+    if (user.success) {
+      return deriveKeyFromPassword(password).then((data) => {
+        const requestOptions = {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer 0986ce94-fa35-49b9-a7cc-a631322aa384",
+          },
+          body: JSON.stringify({
+            key: data["keyString"],
+            salt: data["saltString"],
+          }),
+        };
+        return fetch(
+          "https://inbdpa.api.hscc.bdpa.org/v1/users/" + user.user.user_id,
+          requestOptions
+        ).then((response) => {
+          return response.json();
+        });
+      });
+    }
+  });
+}
 export function SignInSystem(user) {
   localStorage.setItem("user", JSON.stringify(user));
 }
+/*then((data) => {
+  console.log(data)
+  if (data["success"]) {
+    console.log()
+    localStorage.setItem("user", JSON.stringify(user["user"]));
+  }
+  else{
+    console.log(data)
+  }
+}); */
