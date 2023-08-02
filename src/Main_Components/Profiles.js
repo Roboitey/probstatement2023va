@@ -2,7 +2,7 @@ import React from "react";
 import { getProfile } from "../services/profileService";
 import { useEffect } from "react";
 import { useState } from "react";
-import { redirect, useParams } from "react-router-dom";
+import { redirect, useParams, useNavigate } from "react-router-dom";
 import { UserEdit } from "../services/userService";
 import { createConnections } from "../services/connectionService";
 
@@ -26,6 +26,7 @@ function Profiles(Props) {
   const [numEduInputFields, setNumEduInputFields] = useState(0);
   const [numVolInputFields, setNumVolInputFields] = useState(0);
   const [numSKillInputFields, setNumSkillInputFields] = useState(1);
+  const Nav = useNavigate()
   let { userId } = useParams();
   /*useEffect(() => {
     console.log(userId);
@@ -39,7 +40,7 @@ function Profiles(Props) {
       : userId;
 
     if (!userId) {
-      redirect("/sign-up");
+      Nav("/sign-up");
     } else {
       console.log(userId);
       getProfile(userId).then((profile) => {

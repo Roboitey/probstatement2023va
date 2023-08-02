@@ -251,7 +251,6 @@ html {
   padding: 5px;
 }
 .ac-description-edit-skill-input {
-  border: 1px solid black;
   padding: 2px;
   outline: none;
   border-radius: 5px;
@@ -267,7 +266,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 1px solid black;
 }
 .ac-description-edit-btn {
   width: 200px;
