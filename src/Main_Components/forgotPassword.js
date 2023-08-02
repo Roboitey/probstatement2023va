@@ -229,7 +229,7 @@ function ForgotPassword() {
               ConfirmPassword:
             </label>
             <input
-              type="confirmPassword"
+              type="password"
               id="confirmPassword"
               name="confirmPassword"
               placeholder="Confirm Password "
