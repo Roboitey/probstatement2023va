@@ -1,9 +1,71 @@
 import React from "react";
 import "../Styles/forgotPassword.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChangePassword } from "../services/LoginService";
 import ErrorMessage from "../Sub_components/errorModal";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
+const SuccessMessage = ({ isOpen, setIsOpen, title, body }) => {
+  const Nav = useNavigate();
+  if (!isOpen) return null;
+  return (
+    <Modal show={isOpen} onHide={() => setIsOpen(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{body}</Modal.Body>
+      <Modal.Footer>
+        <Button
+          variant="primary"
+          onClick={() => {
+            setIsOpen(false);
+            Nav("/login");
+          }}
+        >
+          Ok, Go back to profile page
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+const RecoveryMessage = ({ isOpen, setIsOpen, title, closeFunction }) => {
+  if (!isOpen) return null;
+  return (
+    <Modal show={isOpen} onHide={closeFunction}>
+      <Modal.Header closeButton>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Footer>
+        <Button variant="primary" onClick={closeFunction}>
+          Ok!
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+const EmailErrorMessage = ({ isOpen, setIsOpen, title, body }) => {
+  if (!isOpen) return null;
+  return (
+    <Modal show={isOpen} onHide={() => setIsOpen(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{body}</Modal.Body>
+      <Modal.Footer>
+        <Button
+          variant="primary"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          Understood
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -11,6 +73,10 @@ function ForgotPassword() {
   const [confirmPassword, setconfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [isPasswordModalOpen, setPasswordIsModalOpen] = useState(false);
+  const [isPassword2ModalOpen, setPassword2IsModalOpen] = useState(false);
+  const [isSuccessModalOpen, setSuccessIsModalOpen] = useState(false);
+  const [isRecoveryModalOpen, setRecoveryIsModalOpen] = useState(false);
+  const [isEmailErrorModalOpen, setEmailErrorIsModalOpen] = useState(false);
   const [submit, setSubmit] = useState(false);
   const [strength, setStrength] = useState();
   const [st, setSt] = useState("Weak");
@@ -37,42 +103,75 @@ function ForgotPassword() {
       if (strength) {
         if (password !== confirmPassword) {
           setError("password does not match");
+          setPassword2IsModalOpen(true);
         } else {
           console.log("Password changed");
           setError("");
           ChangePassword(username, password);
+          setSuccessIsModalOpen(true);
         }
       } else {
-        setPasswordIsModalOpen(true)
+        setPasswordIsModalOpen(true);
       }
     } else {
-      console.log("Recovery email has been sent to " + email);
-      setSubmit(true);
+      if (email.length !== 0) {
+        console.log("Recovery email has been sent to " + email);
+        setRecoveryIsModalOpen(true);
+      } else {
+        setEmailErrorIsModalOpen(true);
+      }
     }
   }
   return !submit ? (
-    <div className="forget-pass">
-      <div className="forge-pass-title">
-        <h1>Forgot Password?</h1>
+    <>
+      <RecoveryMessage
+        isOpen={isRecoveryModalOpen}
+        setIsOpen={setRecoveryIsModalOpen}
+        title={"Recovery email has been sent to " + email}
+        closeFunction={() => {
+          setSubmit(true);
+        }}
+      />
+      <EmailErrorMessage
+        isOpen={isEmailErrorModalOpen}
+        setIsOpen={setEmailErrorIsModalOpen}
+        title="Invalid Email"
+        body="Please enter your recovery email."
+      />
+
+      <div className="forget-pass">
+        <div className="forge-pass-title">
+          <h1>Forgot Password?</h1>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <label for="email" placeholder="enter...">
+            Email:
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email: "
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button type="submit">Reset Password</button>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <label for="email" placeholder="enter...">
-          Email:
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="email: "
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <button type="submit">Reset Password</button>
-      </form>
-    </div>
+    </>
   ) : (
     <>
+      <ErrorMessage
+        isOpen={isPassword2ModalOpen}
+        setIsOpen={setPassword2IsModalOpen}
+        title="Invalid Password"
+        body="Passwords do not match. Please change it to make it valid."
+      />
+      <SuccessMessage
+        isOpen={isSuccessModalOpen}
+        setIsOpen={setSuccessIsModalOpen}
+        title="Your password has been successfully changed"
+        body=""
+      />
       <ErrorMessage
         isOpen={isPasswordModalOpen}
         setIsOpen={setPasswordIsModalOpen}

@@ -343,7 +343,6 @@ html {
     position: absolute;
     top: 120px;
     transition: all 0.3s;
-    border: 3px solid black;
   }
   .profile-section-container > .ps-profile-card {
     width: 70%;
