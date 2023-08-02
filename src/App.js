@@ -8,6 +8,7 @@ import Layout from "./Main_Components/Layout";
 import Login from "./Main_Components/Login";
 import NotFound from "./Main_Components/NotFound";
 import SignUp from "./Main_Components/signup";
+import Admin from "./Main_Components/admin";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/forget-pass" element={<ForgotPassword />} />
             <Route path="/profile" element={<Profiles />} />
             <Route path="/profile/:userId" element={<Profiles />} />
+            <Route path="/admin" element={<Admin />} />
             </Route>
         </Routes>
       </BrowserRouter>

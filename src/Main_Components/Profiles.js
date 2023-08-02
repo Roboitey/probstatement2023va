@@ -5,7 +5,6 @@ import { useState } from "react";
 import { redirect, useParams } from "react-router-dom";
 import { UserEdit } from "../services/userService";
 import { createConnections } from "../services/connectionService";
-import { useNavigate } from "react-router-dom";
 
 import SectionInputs from "../Sub_components/sectionInputs";
 
@@ -128,6 +127,7 @@ function Profiles(Props) {
                 <p>{user["type"]}</p>
               </div>
             </div>
+            <br />
             <div className="pc-info-views">
               <p>Views: {user["views"]}</p>
             </div>
@@ -223,6 +223,7 @@ function Profiles(Props) {
                 {user.sections?.experience.map((item, key) => {
                   return (
                     <>
+                      <hr />
                       <p>
                         Title: <strong>{item.title}</strong>
                       </p>
@@ -246,6 +247,7 @@ function Profiles(Props) {
                       <p>
                         Description: <strong>{item.description}</strong>
                       </p>
+                      <hr />
                     </>
                   );
                 })}
@@ -311,6 +313,7 @@ function Profiles(Props) {
                 {user.sections?.education.map((item, key) => {
                   return (
                     <>
+                      <hr />
                       <p>
                         Title: <strong>{item.title}</strong>
                       </p>
@@ -334,6 +337,7 @@ function Profiles(Props) {
                       <p>
                         Description: <strong>{item.description}</strong>
                       </p>
+                      <hr />
                     </>
                   );
                 })}
@@ -398,19 +402,34 @@ function Profiles(Props) {
                 {user.sections?.volunteering.map((item, key) => {
                   return (
                     <>
-                      <p>Title: {item.title}</p>
-                      <p>Location: {item.location}</p>
-                      <p>Start At: {new Date(item.startedAt).toDateString()}</p>
+                      <hr />
                       <p>
-                        Ended At:{" "}
-                        {item.endedAt
-                          ? new Date(item.endedAt).toDateString()
-                          : "Present"}
+                        Title: <strong>{item.title}</strong>
                       </p>
-                      <p>Description: {item.description}</p>
+                      <p>
+                        Location: <strong>{item.location}</strong>
+                      </p>
+                      <p>
+                        Start At:
+                        <strong>
+                          {new Date(item.startedAt).toDateString()}
+                        </strong>
+                      </p>
+                      <p>
+                        Ended At:
+                        <strong>
+                          {item.endedAt
+                            ? new Date(item.endedAt).toDateString()
+                            : "Present"}
+                        </strong>
+                      </p>
+                      <p>
+                        Description: <strong>{item.description}</strong>
+                      </p>
+                      <hr />
                     </>
                   );
-                })}{" "}
+                })}
               </div>
             )}
           </div>

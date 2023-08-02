@@ -127,7 +127,7 @@ html {
   cursor: pointer;
   border: 1px solid var(--CTA-1);
 }
-@media (max-width: 700px){
+@media (max-width: 750px){
   .form-login {
     margin: auto;
     width: 89%;

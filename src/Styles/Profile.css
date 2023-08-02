@@ -52,7 +52,6 @@ html {
   object-fit: cover;
   margin-left: 50px;
 }
-
 .pc-edit {
   width: 45px;
   height: 45px;
@@ -63,6 +62,7 @@ html {
   transition: all 0.2s ease;
   background-color: transparent;
   border-radius: 50%;
+  margin-right: 10px;
 }
 .pc-edit > .edit-icon {
   padding: 2px;
@@ -122,8 +122,24 @@ html {
   height: 27px;
   width: 180%;
 }
+.pc-info-email > div {
+  display: flex;
+  justify-content: start;
+  width: 90%;
+  height: 30px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .pc-info-email > div > p {
   font-size: 20px;
+  height: 30px;
+}
+.pc-info-email > div > strong {
+  font-size: 20px;
+  width: auto;
+  height: 30px;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 .pc-info-email_type > .pc-info-type {
   height: 27px;
@@ -318,7 +334,7 @@ html {
     margin-left: 30px;
   }
 }
-@media (max-width: 760px) and (min-width: 650px){
+@media (max-width: 760px) and (min-width: 650px) {
   .profile-section-container {
     width: 98.5%;
     height: auto;
@@ -340,7 +356,7 @@ html {
     margin-left: 30px;
   }
 }
-@media (max-width: 650px) and (min-width: 100px){
+@media (max-width: 650px) and (min-width: 100px) {
   .profile-section-container {
     width: 98.5%;
     height: auto;
@@ -361,10 +377,46 @@ html {
     width: 70%;
     margin-left: 30px;
   }
-  .pc-info-email > div > p {
-    font-size: 17px;
+  .pc-info-email > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 30%;
+    height: 50px;
+    flex-wrap: nowrap;
+    gap: 1px;
+    margin-top: -10px;
   }
-  .pc-info-email > p > strong{
-
+  .pc-info-email_type > .pc-info-type {
+    height: 27px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .pc-info-email > div > strong{
+    margin-top: -30px;
+  }
+  .pc-info-email > div > p,
+  .pc-info-email > div > strong {
+    font-size: 19px;
+  }
+  .pc-profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    margin-left: 1px;
+  }
+  .ps-profile-card > .pc-back-img {
+    width: 100%;
+    height: 100px;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+    object-fit: contain;
+    border-radius: inherit;
   }
 }
