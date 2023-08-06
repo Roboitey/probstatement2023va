@@ -4,10 +4,10 @@ html {
   --Third-color: #4d5f9d;
   --CTA-1: #08102b;
   --CTA-2: #393e51;
+  --danger: #dc3545;
+  --Moderate: #cfbf39;
+  --success: #1ecb34;
   overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 .navbar-container {
   width: 90%;

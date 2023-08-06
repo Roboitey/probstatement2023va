@@ -5,8 +5,11 @@ import { useState } from "react";
 import { redirect, useParams, useNavigate } from "react-router-dom";
 import { UserEdit } from "../services/userService";
 import { createConnections } from "../services/connectionService";
+import md5 from "blueimp-md5";
+import { addConnection } from "../services/userService";
 
 import SectionInputs from "../Sub_components/sectionInputs";
+import ConnectionList from "../Sub_components/connectionList";
 
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
@@ -26,23 +29,22 @@ function Profiles(Props) {
   const [numEduInputFields, setNumEduInputFields] = useState(0);
   const [numVolInputFields, setNumVolInputFields] = useState(0);
   const [numSKillInputFields, setNumSkillInputFields] = useState(1);
-  const Nav = useNavigate()
+  const emailAddress = "" + user["email"];
+  const Nav = useNavigate();
   let { userId } = useParams();
-  /*useEffect(() => {
-    console.log(userId);
-    createConnections(userId).then((data) => {
-      console.log(data);
-    });
-  }, []);*/
-  useEffect(() => {
-    userId = localStorage.getItem("user")
-      ? JSON.parse(localStorage.getItem("user"))["user_id"]
-      : userId;
+  const [myProfile, setMyProfile] = useState(!userId);
+  const [connections, setConnection] = useState([]);
 
+  const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
+  useEffect(() => {
+    userId =
+      !userId && localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))["user_id"]
+        : userId;
     if (!userId) {
       Nav("/sign-up");
     } else {
-      console.log(userId);
+      console.log(myProfile);
       getProfile(userId).then((profile) => {
         setUser(profile["user"]);
         setAbout(profile.user.sections?.about);
@@ -67,6 +69,13 @@ function Profiles(Props) {
       },
     });
   };
+  useEffect(() => {
+    console.log(userId);
+    createConnections(userId).then((data) => {
+      setConnection(data);
+      console.log(data);
+    });
+  }, [userId]);
 
   return (
     <>
@@ -75,7 +84,9 @@ function Profiles(Props) {
           <img
             className="pc-back-img"
             src={
-              "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+              "https://www.gravatar.com/avatar/" +
+              processedEmail +
+              "?d=identicon"
             }
             alt="not found"
           />
@@ -83,34 +94,38 @@ function Profiles(Props) {
             <img
               className="pc-profile-img"
               src={
-                "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+                "https://www.gravatar.com/avatar/" +
+                processedEmail +
+                "?d=identicon"
               }
               alt="not found"
             />
 
-            <button
-              className="pc-edit"
-              onClick={() => {
-                setEditMode(!EditMode);
-              }}
-            >
-              {EditMode ? (
-                <CloseIcon
-                  fontSize="large"
-                  className="edit-icon"
-                  sx={{ color: "black" }}
-                />
-              ) : (
-                <ModeEditOutlineOutlinedIcon
-                  fontSize="large"
-                  className="edit-icon"
-                  sx={{ color: "black" }}
-                />
-              )}
-              <div className="edit-btn-tooltip">
-                <p>{EditMode ? "Exit" : "Enter"} edit mode</p>
-              </div>
-            </button>
+            {myProfile ? (
+              <button
+                className="pc-edit"
+                onClick={() => {
+                  setEditMode(!EditMode);
+                }}
+              >
+                {EditMode ? (
+                  <CloseIcon
+                    fontSize="large"
+                    className="edit-icon"
+                    sx={{ color: "black" }}
+                  />
+                ) : (
+                  <ModeEditOutlineOutlinedIcon
+                    fontSize="large"
+                    className="edit-icon"
+                    sx={{ color: "black" }}
+                  />
+                )}
+                <div className="edit-btn-tooltip">
+                  <p>{EditMode ? "Exit" : "Enter"} edit mode</p>
+                </div>
+              </button>
+            ) : null}
           </div>
           <div className="pc-information">
             <div className="pc-info-name">
@@ -510,6 +525,25 @@ function Profiles(Props) {
           </button>
         </div>
       ) : null}
+      {myProfile ? (
+        <ConnectionList connections={connections} />
+      ) : (
+        <>
+          <div className="connection_btn">
+            <button
+              type="button"
+              onClick={() => {
+                addConnection(
+                  JSON.parse(localStorage.getItem("user"))["user_id"],
+                  userId
+                );
+              }}
+            >
+              Add connection
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 }
