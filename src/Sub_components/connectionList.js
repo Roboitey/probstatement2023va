@@ -68,58 +68,37 @@ function ConnectionList(Props) {
           <h1>connections</h1>
           <p>423 connections</p>
         </div>
-        <div className="connection-list">
-          <div className="connection-card-list">
-            <div className="connection-card">
-              <div className="connection-order">
-                <p>
-                  order: <strong>243</strong>
-                </p>
-              </div>
-              <div className="connection-img">
-                <img
-                  src={"https://www.gravatar.com/avatar/j1212kj2/?d=identicon"}
-                  alt="Not found"
-                />
-              </div>
-              <div className="connection-name">
-                <h1>Lucthegoose</h1>
-              </div>
-            </div>
-            <div className="connection-delete">
-              <button type="button" >
-                <DeleteIcon sx={{ color: "white" }} fontSize="large" />
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* {displayConnections.map((item, key) => {
+        {displayConnections.map((item, key) => {
           return (
-            <div className="connection_card">
-              <div className="connection_order">
-                <p>{item.order}</p>
+            <>
+              <div className="connection-card-list">
+                <div className="connection-card">
+                  <div className="connection-order">
+                    <p>
+                      order: <strong>243</strong>
+                    </p>
+                  </div>
+                  <div className="connection-img">
+                    <img
+                      src={
+                        "https://www.gravatar.com/avatar/j1212kj2/?d=identicon"
+                      }
+                      alt="Not found"
+                    />
+                  </div>
+                  <div className="connection-name">
+                    <h1>Lucthegoose</h1>
+                  </div>
+                </div>
+                <div className="connection-delete">
+                  <button type="button">
+                    <DeleteIcon sx={{ color: "white" }} fontSize="large" />
+                  </button>
+                </div>
               </div>
-              <div className="connection_img">
-                <img
-                  src={
-                    "https://www.gravatar.com/avatar/" +
-                    md5(("" + item.email).toLowerCase().trim("" + item.email)) +
-                    "?d=identicon"
-                  }
-                  alt="Not found"
-                />
-              </div>
-              <div className="connection_name">
-                <h1>{item.username}</h1>
-              </div>
-              <div className="connection_delete">
-                <button>
-                  <DeleteIcon sx={{ color: "black" }} fontSize="large" />
-                </button>
-              </div>
-            </div>
+            </>
           );
-        })}*/}
+        })}
       </div>
       <div className="pagination">
         <Pagination>
