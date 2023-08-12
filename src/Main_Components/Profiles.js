@@ -7,14 +7,17 @@ import { UserEdit } from "../services/userService";
 import { createConnections } from "../services/connectionService";
 import md5 from "blueimp-md5";
 import { addConnection } from "../services/userService";
+import { getUser } from "../services/userService";
 
 import SectionInputs from "../Sub_components/sectionInputs";
 import ConnectionList from "../Sub_components/connectionList";
 
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import "../Styles/Profile.css";
+import "../Styles/connectionsList.css";
 
 function Profiles(Props) {
   //64a5685eb514057de4e2d42d
@@ -34,6 +37,7 @@ function Profiles(Props) {
   let { userId } = useParams();
   const [myProfile, setMyProfile] = useState(!userId);
   const [connections, setConnection] = useState([]);
+  const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
   useEffect(() => {
@@ -44,7 +48,8 @@ function Profiles(Props) {
     if (!userId) {
       Nav("/sign-up");
     } else {
-      console.log(myProfile);
+      console.log(userId);
+      setCurrentUser(userId);
       getProfile(userId).then((profile) => {
         setUser(profile["user"]);
         setAbout(profile.user.sections?.about);
@@ -69,13 +74,6 @@ function Profiles(Props) {
       },
     });
   };
-  useEffect(() => {
-    console.log(userId);
-    createConnections(userId).then((data) => {
-      setConnection(data);
-      console.log(data);
-    });
-  }, [userId]);
 
   return (
     <>
@@ -526,7 +524,7 @@ function Profiles(Props) {
         </div>
       ) : null}
       {myProfile ? (
-        <ConnectionList connections={connections} />
+        ""
       ) : (
         <>
           <div className="connection_btn">
@@ -544,6 +542,7 @@ function Profiles(Props) {
           </div>
         </>
       )}
+      {currentUser && <ConnectionList user_id={currentUser} userId={userId} />}
     </>
   );
 }
