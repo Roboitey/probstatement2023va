@@ -11,6 +11,8 @@ function Feed() {
   const [keywords, setKeywords] = useState([]);
   const [EditMode, setEditMode] = useState(false);
   const [numSKillInputFields, setNumSkillInputFields] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filtered, setFiltered] = useState([]);
   const keywordsMaxLimit = 10;
 
   useEffect(() => {
@@ -37,6 +39,18 @@ function Feed() {
 
   return (
     <>
+      <div className="feed-header">
+        <h2 className="opportunity-title">Articles: </h2>
+        <input
+          type="text"
+          placeholder="Search..."
+          className="opportunity-search"
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+        />
+      </div>
       <div className="articles">
         {articles.map((item, key) => {
           return (

@@ -92,6 +92,7 @@ function Profiles(Props) {
       });
     }
   }, []);
+  
 
   return (
     <>
@@ -168,7 +169,7 @@ function Profiles(Props) {
                   <p> Email Address: </p>
                   {EditMode ? (
                     <input
-                      value={email}
+                      value={email        }
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
