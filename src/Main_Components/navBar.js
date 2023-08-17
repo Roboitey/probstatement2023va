@@ -41,7 +41,7 @@ function NavBar() {
         isOpen={SureModalOpen}
         setIsOpen={setSureModalOpen}
         title="Are you sure you want to log out of inBDPA"
-        body="if you press yes, you will be logged out but you could login in again with your username and password. !! Your information will be saved !!"
+        body="If you press yes, you will be logged out but you could login in again with your username and password. !! Your information will be saved !!"
       />
       <nav className="navbar-container">
         <div className={MenuOpen ? "logo" : "logo-off"}>

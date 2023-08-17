@@ -37,6 +37,7 @@ function SignUp() {
     if (pass.length <= 11) {
       setStrength(false);
       setSt("Weak");
+      
     }
     if (11 < pass.length && pass.length < 17) {
       setStrength(true);
