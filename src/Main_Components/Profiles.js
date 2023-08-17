@@ -43,6 +43,9 @@ function Profiles(Props) {
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
+  function deleteuserfunction() {
+    DeleteUser(userId);
+  }
 
   const applyChanges = () => {
     UserEdit(userId, about, Experience, Education, Volunteering, Skills);
@@ -72,8 +75,8 @@ function Profiles(Props) {
       console.log(email, fullName);
       setCurrentUser(userId);
       getProfile(userId).then((profile) => {
-        setEmail(user["email"])
-        setFullName(user["fullName"])
+        setEmail(user["email"]);
+        setFullName(user["fullName"]);
         setUser(profile["user"]);
         setAbout(profile.user.sections?.about);
         setExperience(profile.user.sections?.experience);
@@ -137,7 +140,7 @@ function Profiles(Props) {
           <div className="pc-information">
             <div className="pc-info-name">
               <h1>
-                {user["username"]} <span>&#183; </span> 
+                {user["username"]} <span>&#183; </span>
                 {EditMode ? (
                   <input
                     className="ac-description-edit-fullName"
@@ -565,7 +568,9 @@ function Profiles(Props) {
           </div>
         </>
       )}
-      {currentUser && <ConnectionList user_id={currentUser} userId={userId} />}
+      <button className="deleteButton" onClick={deleteuserfunction}>
+        Delete My Account?
+      </button>
     </>
   );
 }

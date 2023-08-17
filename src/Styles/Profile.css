@@ -456,16 +456,16 @@ html {
   }
 
 }
-  .deleteButton {
-    width: 200px;
-    height: 40px;
-    border-radius: 25px;
-    border: 2px solid transparent;
-    position: absolute;
-    bottom: -30px;
-    margin-left: 140px;
-    color: white;
-    font-size: 20px;
-    transition: all 0.5s ease;
-    background: #dc3545;
-  }
+.deleteButton {
+  width: 200px;
+  height: 40px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  position: absolute;
+  bottom: -30px;
+  margin-left: 140px;
+  color: white;
+  font-size: 20px;
+  transition: all 0.5s ease;
+  background: #dc3545;
+}
