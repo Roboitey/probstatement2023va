@@ -1,74 +1,51 @@
-import React, { useEffect, useState } from "react";
-import { getArticles } from "../services/feedService";
+import React from "react";
+import { useEffect, useState } from "react";
+import { getArticles, CreateArticle } from "../services/feedService";
 import "../Styles/Feed.css";
 
 function Feed() {
   const [articles, setArticles] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage] = useState(3); // Adjust the number of articles per page
-  const [totalPages, setTotalPages] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("");
+  const [userID, setUserID] = useState("");
+  const [keywords, setKeywords] = useState([]);
+  const [EditMode, setEditMode] = useState(false);
+  const [numSKillInputFields,setNumSkillInputFields] = useState(1);
+  const keywordsMaxLimit = 10;
 
   useEffect(() => {
-    // Replace this with your actual fetch function
-    // For the sake of example, let's assume getArticles() returns a promise
     getArticles().then((data) => {
-      console.log(data.articles);
       setArticles(data.articles);
-      setTotalPages(Math.ceil(data.articles.length / articlesPerPage));
     });
-  }, [articlesPerPage]);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  }, []);
+  useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem("user"))["user_id"]);
+    setUserID(JSON.parse(localStorage.getItem("user"))["user_id"]);
+  }, []);
+  const createArticleFunction = () => {
+    setEditMode(false);
+    CreateArticle(title, contents, userID, keywords);
   };
-
-  const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+  function addKeyword(){
+    if (numSKillInputFields < keywordsMaxLimit){
+      setNumSkillInputFields((prevNum) => prevNum + 1)
     }
-  };
-
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+    else{
+      console.log("Limit Reached");
+      console.log(numSKillInputFields.length);
     }
-  };
-  const searchPaginationItems = (e) => {
-    setSearchTerm(e.target.value)
-    setCurrentPage(1)
   }
-
-  const indexOfLastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
-
 
   return (
     <>
-    <div className="opportunity-container">
-      <div className="opportunity-header">
-        <h2 classname="opportunity-title">
-          Articles:
-         
-        </h2>
-        <input
-          type="text"
-          placeholder="Search..."
-          className="opportunity-search"
-          value={searchTerm}
-          onChange={searchPaginationItems}
-        />
-      </div>
-     <div classname="opportunity-content">
-     {currentArticles.length === 0 ? (
-          <div className="no-results">No results found...</div>
-        ) : (
-          currentArticles.map((item, key) => (
+      {articles.map((item, key) => {
+        return (
+          <>
             <div className="article-cont" key={key}>
               <div className="article-top">
                 <div className="article-title">
                   <h1>{item.title}</h1>
+                  <h5>Keyword: {item.keywords}</h5>
                 </div>
               </div>
               <div className="article-center">
@@ -87,36 +64,77 @@ function Feed() {
                 </div>
               </div>
             </div>
-          ))
-        )}
-     </div>
-    </div>
-      
-
-      <div className="pagination">
-        <button className="pagination-button" onClick={goToPreviousPage}>
-          {"<"}
-        </button>
-        {Array.from({ length: totalPages }, (_, index) => (
+          </>
+        );
+      })}
+      {EditMode ? (
+        <div className="create-article-btn">
+          <button onClick={createArticleFunction}>Add Article</button>
+        </div>
+      ) : (
+        <div className="create-article-btn">
           <button
-            key={index}
-            onClick={() => handlePageChange(index + 1)}
-            className={currentPage === index + 1 ? "pagination-button active" : "pagination-button"}
+            onClick={() => {
+              setEditMode(true);
+            }}
           >
-            {index + 1}
+            Create Article
           </button>
-        ))}
-        <button className="pagination-button" onClick={goToNextPage}>
-          {">"}
-        </button>
-      </div>
+        </div>
+      )}
+      {EditMode ? (
+        <>
+          <div className="article-cont alone">
+            <div className="article-top">
+              <div className="article-title">
+                <input
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
+                  value={title}
+                  placeholder="Title"
+                />
+              </div>
+            </div>
+            <div className="article-center">
+              <div className="article-center-content">
+                <textarea
+                  placeholder="Content"
+                  onChange={(e) => {
+                    setContents(e.target.value);
 
-      <div className="create-article-btn">
-        <button>Create Article</button>
-      </div>
+                  }}
+                />
+              </div>
+            </div>
+            <div className="article-bottom">
+              <div className="article-b-views-new">
+                <div>
+                  {Array.from({ length: numSKillInputFields }, (_, index) => (
+                    <input
+                      type="text"
+                      placeholder="Keyword"
+                      onChange={(e) => {
+                        setKeywords(...keywords, e.target.value);
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="add-keyword-btn">
+                <button
+                  onClick={addKeyword}
+                  
+                >
+                  Add new Keyword
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
     </>
   );
-  
 }
 
 export default Feed;
