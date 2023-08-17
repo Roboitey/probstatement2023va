@@ -45,7 +45,16 @@ function Profiles(Props) {
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
 
   const applyChanges = () => {
-    UserEdit(userId, about, Experience, Education, Volunteering, Skills, email, fullName);
+    UserEdit(
+      userId,
+      about,
+      Experience,
+      Education,
+      Volunteering,
+      Skills,
+      email,
+      fullName
+    );
     setEditMode(false);
     setUser({
       ...user,
@@ -148,7 +157,7 @@ function Profiles(Props) {
                     placeholder="full Name"
                   />
                 ) : (
-                  fullName
+                  user["fullName"]
                 )}
               </h1>
             </div>
@@ -157,7 +166,17 @@ function Profiles(Props) {
               <div className="pc-info-email">
                 <div>
                   <p> Email Address: </p>
-                  <strong>{email}</strong>
+                  {EditMode ? (
+                    <input
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                      placeholder="Email Address"
+                    ></input>
+                  ) : (
+                    <strong>{user["email"]}</strong>
+                  )}
                 </div>
               </div>
               <div className="pc-info-type">
