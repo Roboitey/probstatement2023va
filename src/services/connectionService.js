@@ -10,7 +10,7 @@ async function getConnections(user_id) {
     },
   };
   const data = await fetch(
-    "https://inbdpa.api.hscc.bdpa.org/v1/users/" + user_id + "/connections",
+    "https://inbdpa.api.hscc.bdpa.org/v2/users/" + user_id + "/connections",
     requestOptions
   );
   return data.json();

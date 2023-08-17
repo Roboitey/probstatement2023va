@@ -7,7 +7,7 @@ export function getUser(Username) {
     },
   };
   return fetch(
-    "https://inbdpa.api.hscc.bdpa.org/v1/users/" + Username,
+    "https://inbdpa.api.hscc.bdpa.org/v2/users/" + Username,
     requestOptions
   ).then((data) => data.json());
 }
