@@ -39,6 +39,10 @@ function Admin() {
             <p className="admin-cont-info-body-label">users:</p>
             <p className="admin-cont-info-body-label-text">{info.users}</p>
           </div>
+          <div className="admin-cont-info-body">
+            <p className="admin-cont-info-body-label">Articles:</p>
+            <p className="admin-cont-info-body-label-text">{info.articles}</p>
+          </div>
         </div>
       </div>
     </>

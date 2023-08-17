@@ -43,6 +43,7 @@ html {
   align-items: center;
   border-radius:10px;
   box-shadow: 3px 5px 10px 1px #000;
+  background-color: white;
 
 }
 .article-cont > .article-top {
