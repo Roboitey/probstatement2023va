@@ -6,7 +6,7 @@ export function getProfile(id){
             'content-type': "application/json"
         }
     }
-    return fetch("https://inbdpa.api.hscc.bdpa.org/v1/users/" + id, requestOptions).then((res)=>(
+    return fetch("https://inbdpa.api.hscc.bdpa.org/v2/users/" + id, requestOptions).then((res)=>(
         (res.json())
     ))
 }

@@ -70,7 +70,7 @@ export function LoginSystem(Username, Password) {
             }),
           };
           return fetch(
-            "https://inbdpa.api.hscc.bdpa.org/v1/users/" + userid + "/auth",
+            "https://inbdpa.api.hscc.bdpa.org/v2/users/" + userid + "/auth",
             requestOptions
           ).then((res) => {
             return res.json().then((data) => {

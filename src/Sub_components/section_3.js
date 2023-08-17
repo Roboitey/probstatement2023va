@@ -3,9 +3,11 @@ import "../Styles/Section_3.css";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Rc_lst from "../Data/Rc_lst_data";
+import { useNavigate } from "react-router-dom";
 
 function Section_3() {
-  const [expand, setExpand] = useState(false);
+  const [expand, setExpand,] = useState(false);
+  const Nav = useNavigate()
   return (
     <>
       <section className={expand ? "sec3-e" : "sec3-n"}>
@@ -19,7 +21,7 @@ function Section_3() {
           <div className={expand ? "rc-lst-e" : "rc-lst-n"}>
             <div className="rc-lst-ul">
               {Rc_lst.map((Item, key) => {
-                return <div key={key}>{Item}</div>;
+                return <div key={key}><button onClick={() => {Nav("/opportunity")}}> {Item} </button></div>;
               })}
             </div>
           </div>

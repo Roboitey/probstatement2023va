@@ -8,7 +8,7 @@ export function getInfo() {
       Authorization: "bearer " + api_key,
     },
   };
-  return fetch("https://inbdpa.api.hscc.bdpa.org/v1/info" ,requestOptions).then((data) => {
+  return fetch("https://inbdpa.api.hscc.bdpa.org/v2/info" ,requestOptions).then((data) => {
     return data.json();
   })
 }
