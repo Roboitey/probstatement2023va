@@ -104,3 +104,33 @@ html {
     text-align: center;
     font-size: 19px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  border: none;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  padding: 4px 8px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.4 ease;
+}
+
+.pagination-button:hover {
+  color: white;
+  text-decoration: underline;
+  background-color: #284dd2e7;
+}
+
+.pagination-button.active {
+  font-weight: bold;
+  background-color: #284dd2;
+  color:  white;
+}
