@@ -40,6 +40,7 @@ function Profiles(Props) {
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
+  useEffect(()=>{console.log(user['fullName'])})
   useEffect(() => {
     userId =
       !userId && localStorage.getItem("user")

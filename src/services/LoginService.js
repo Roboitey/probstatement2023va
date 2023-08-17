@@ -92,7 +92,7 @@ export function LoginSystem(Username, Password) {
     }
   );
 }
-export function SignUpSystem(username, email, password) {
+export function SignUpSystem(username, email, password, fullName) {
   return deriveKeyFromPassword(password).then((data) => {
     const requestOptions = {
       method: "POST",
@@ -105,11 +105,12 @@ export function SignUpSystem(username, email, password) {
         salt: data["saltString"],
         username: username,
         email: email,
+        fullName: fullName,
         type: "inner",
       }),
     };
     return fetch(
-      "https://inbdpa.api.hscc.bdpa.org/v1/users",
+      "https://inbdpa.api.hscc.bdpa.org/v2/users",
       requestOptions
     ).then((response) => {
       return response.json();
@@ -132,7 +133,7 @@ export function ChangePassword(username, password) {
           }),
         };
         return fetch(
-          "https://inbdpa.api.hscc.bdpa.org/v1/users/" + user.user.user_id,
+          "https://inbdpa.api.hscc.bdpa.org/v2/users/" + user.user.user_id,
           requestOptions
         ).then((response) => {
           return response.json();
