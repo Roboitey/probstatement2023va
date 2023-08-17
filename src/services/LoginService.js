@@ -92,7 +92,7 @@ export function LoginSystem(Username, Password) {
     }
   );
 }
-export function SignUpSystem(username, email, password) {
+export function SignUpSystem(username, email, password, fullName) {
   return deriveKeyFromPassword(password).then((data) => {
     const requestOptions = {
       method: "POST",
@@ -105,6 +105,7 @@ export function SignUpSystem(username, email, password) {
         salt: data["saltString"],
         username: username,
         email: email,
+        fullName: fullName,
         type: "inner",
       }),
     };

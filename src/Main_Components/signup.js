@@ -17,6 +17,7 @@ function SignUp() {
   const [username, setUsername] = useState("");
   const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullName, setFullname] = useState("");
   const [captcha, setCaptcha] = useState("");
   const [isCaptchaValid, setIsCaptchaValid] = useState(false);
   const [captchaImgVIsibility, setCaptchaImgVisibility] = useState(false);
@@ -55,7 +56,7 @@ function SignUp() {
       if (isCaptchaValid) {
         // Perform Sign up logic here
         console.log("Correct captcha");
-        SignUpSystem(username, Email, password).then((data) => {
+        SignUpSystem(username, Email, password, fullName).then((data) => {
           if (data.success) {
             SignInSystem(data.user);
             Nav("/profile/" + data.user.user_id);
@@ -121,6 +122,20 @@ function SignUp() {
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             placeholder="Username"
+          />
+        </div>
+
+        <div className="fl-cont">
+          <label htmlFor="FullName" className="fl-label">
+            Full Name:
+          </label>
+          <input
+            type="text"
+            id="Full Name:"
+            className="fl-input"
+            value={fullName}
+            onChange={(event) => setFullname(event.target.value)}
+            placeholder="Full Name"
           />
         </div>
 
