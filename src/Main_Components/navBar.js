@@ -84,7 +84,6 @@ function NavBar() {
         </div>
         <div className={MenuOpen ? "btn-logins" : "btn-logins-off"}>
           {localStorage.getItem("user") ? (
-            <a>
               <button
                 className="btn-signOut"
                 onClick={() => {
@@ -93,7 +92,6 @@ function NavBar() {
               >
                 Log Out
               </button>
-            </a>
           ) : (
             <>
               <a href="/login">

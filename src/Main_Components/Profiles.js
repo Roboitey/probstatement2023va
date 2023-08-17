@@ -23,6 +23,7 @@ function Profiles(Props) {
   //64a5685eb514057de4e2d42d
   const [EditMode, setEditMode] = useState(false);
   const [user, setUser] = useState({});
+
   const [about, setAbout] = useState("");
   const [Experience, setExperience] = useState([]);
   const [Education, setEducation] = useState([]);
@@ -32,11 +33,12 @@ function Profiles(Props) {
   const [numEduInputFields, setNumEduInputFields] = useState(0);
   const [numVolInputFields, setNumVolInputFields] = useState(0);
   const [numSKillInputFields, setNumSkillInputFields] = useState(1);
+  const [email, setEmail] = useState();
+  const [fullName, setFullName] = useState();
   const emailAddress = "" + user["email"];
   const Nav = useNavigate();
   let { userId } = useParams();
   const [myProfile, setMyProfile] = useState(!userId);
-  const [connections, setConnection] = useState([]);
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
@@ -49,8 +51,11 @@ function Profiles(Props) {
       Nav("/sign-up");
     } else {
       console.log(userId);
+      console.log(email, fullName);
       setCurrentUser(userId);
       getProfile(userId).then((profile) => {
+        setEmail(user["email"])
+        setFullName(user["fullName"])
         setUser(profile["user"]);
         setAbout(profile.user.sections?.about);
         setExperience(profile.user.sections?.experience);
@@ -61,10 +66,21 @@ function Profiles(Props) {
     }
   }, []);
   const applyChanges = () => {
-    UserEdit(userId, about, Experience, Education, Volunteering, Skills);
+    UserEdit(
+      userId,
+      about,
+      Experience,
+      Education,
+      Volunteering,
+      Skills,
+      email,
+      fullName
+    );
     setEditMode(false);
     setUser({
       ...user,
+      email: email,
+      fullName: fullName,
       sections: {
         about: about,
         experience: Experience,
@@ -127,14 +143,28 @@ function Profiles(Props) {
           </div>
           <div className="pc-information">
             <div className="pc-info-name">
-              <h1>{user["username"]} <span>&#183;</span> {user["fullName"]}</h1>
+              <h1>
+                {user["username"]} <span>&#183; </span> 
+                {EditMode ? (
+                  <input
+                    className="ac-description-edit-fullName"
+                    onChange={(e) => {
+                      setFullName(e.target.value);
+                    }}
+                    value={fullName}
+                    placeholder="full Name"
+                  />
+                ) : (
+                  fullName
+                )}
+              </h1>
             </div>
             <br />
             <div className="pc-info-email_type">
               <div className="pc-info-email">
                 <div>
                   <p> Email Address: </p>
-                  <strong>{user["email"]}</strong>
+                  <strong>{email}</strong>
                 </div>
               </div>
               <div className="pc-info-type">
@@ -542,7 +572,6 @@ function Profiles(Props) {
           </div>
         </>
       )}
-      {currentUser && <ConnectionList user_id={currentUser} userId={userId} />}
     </>
   );
 }

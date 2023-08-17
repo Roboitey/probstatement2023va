@@ -17,7 +17,9 @@ export function UserEdit(
   Experience,
   Education,
   Volunteering,
-  Skills
+  Skills,
+  email,
+  FullName
 ) {
   const requestOptions = {
     method: "PATCH",
@@ -26,6 +28,8 @@ export function UserEdit(
       Authorization: "Bearer 0986ce94-fa35-49b9-a7cc-a631322aa384",
     },
     body: JSON.stringify({
+      email: email,
+      fullName: FullName,
       sections: {
         about: about,
         experience: Experience,

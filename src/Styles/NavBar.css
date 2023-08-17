@@ -167,8 +167,8 @@ html {
   cursor: pointer;
   background: var(--Third-color);
 }
-.btn-logins > a > .btn-signOut,
-.btn-logins-off > a > .btn-signOut {
+.btn-logins >  .btn-signOut,
+.btn-logins-off >.btn-signOut {
   width: 100px;
   height: 40px;
   border-radius: 25px;
