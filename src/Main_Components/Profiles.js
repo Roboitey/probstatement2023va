@@ -15,6 +15,7 @@ import ConnectionList from "../Sub_components/connectionList";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { DeleteUser } from "../services/profileService";
 
 import "../Styles/Profile.css";
 import "../Styles/connectionsList.css";
@@ -32,6 +33,8 @@ function Profiles(Props) {
   const [numEduInputFields, setNumEduInputFields] = useState(0);
   const [numVolInputFields, setNumVolInputFields] = useState(0);
   const [numSKillInputFields, setNumSkillInputFields] = useState(1);
+  const [email, setEmail] = useState();
+  const [fullName, setFullName] = useState();
   const emailAddress = "" + user["email"];
   const Nav = useNavigate();
   let { userId } = useParams();
@@ -40,26 +43,10 @@ function Profiles(Props) {
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
-  useEffect(() => {
-    userId =
-      !userId && localStorage.getItem("user")
-        ? JSON.parse(localStorage.getItem("user"))["user_id"]
-        : userId;
-    if (!userId) {
-      Nav("/sign-up");
-    } else {
-      console.log(userId);
-      setCurrentUser(userId);
-      getProfile(userId).then((profile) => {
-        setUser(profile["user"]);
-        setAbout(profile.user.sections?.about);
-        setExperience(profile.user.sections?.experience);
-        setEducation(profile.user.sections?.education);
-        setVolunteering(profile.user.sections?.volunteering);
-        setSkills(profile.user.sections?.skills);
-      });
-    }
-  }, []);
+  function deleteuserfunction(){
+    DeleteUser(userId);
+  }
+ 
   const applyChanges = () => {
     UserEdit(userId, about, Experience, Education, Volunteering, Skills);
     setEditMode(false);
@@ -74,6 +61,29 @@ function Profiles(Props) {
       },
     });
   };
+  useEffect(() => {
+    userId =
+      !userId && localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))["user_id"]
+        : userId;
+    if (!userId) {
+      Nav("/sign-up");
+    } else {
+      console.log(userId);
+      console.log(email, fullName);
+      setCurrentUser(userId);
+      getProfile(userId).then((profile) => {
+        setEmail(user["email"])
+        setFullName(user["fullName"])
+        setUser(profile["user"]);
+        setAbout(profile.user.sections?.about);
+        setExperience(profile.user.sections?.experience);
+        setEducation(profile.user.sections?.education);
+        setVolunteering(profile.user.sections?.volunteering);
+        setSkills(profile.user.sections?.skills);
+      });
+    }
+  }, []);
 
   return (
     <>
@@ -542,7 +552,13 @@ function Profiles(Props) {
           </div>
         </>
       )}
-      {currentUser && <ConnectionList user_id={currentUser} userId={userId} />}
+      
+        <button className="deleteButton"
+         onClick={deleteuserfunction}>
+         
+          Delete My Account?
+        </button>
+      
     </>
   );
 }
