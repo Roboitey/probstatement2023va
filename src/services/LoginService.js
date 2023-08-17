@@ -109,7 +109,7 @@ export function SignUpSystem(username, email, password) {
       }),
     };
     return fetch(
-      "https://inbdpa.api.hscc.bdpa.org/v1/users",
+      "https://inbdpa.api.hscc.bdpa.org/v2/users",
       requestOptions
     ).then((response) => {
       return response.json();
@@ -132,7 +132,7 @@ export function ChangePassword(username, password) {
           }),
         };
         return fetch(
-          "https://inbdpa.api.hscc.bdpa.org/v1/users/" + user.user.user_id,
+          "https://inbdpa.api.hscc.bdpa.org/v2/users/" + user.user.user_id,
           requestOptions
         ).then((response) => {
           return response.json();

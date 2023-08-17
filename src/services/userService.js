@@ -36,7 +36,7 @@ export function UserEdit(
     }),
   };
   return fetch(
-    "https://inbdpa.api.hscc.bdpa.org/v1/users/" + user_id,
+    "https://inbdpa.api.hscc.bdpa.org/v2/users/" + user_id,
     requestOptions
   ).then((data) => data.json());
 }
@@ -50,7 +50,7 @@ export function addConnection(user_id, connection_id) {
     },
   };
   return fetch(
-    "https://inbdpa.api.hscc.bdpa.org/v1/users/" +
+    "https://inbdpa.api.hscc.bdpa.org/v2/users/" +
       user_id +
       "/connections/" +
       connection_id,
@@ -67,7 +67,7 @@ export function deleteConnection(user_id, connection_id) {
     },
   };
   return fetch(
-    "https://inbdpa.api.hscc.bdpa.org/v1/users/" +
+    "https://inbdpa.api.hscc.bdpa.org/v2/users/" +
       user_id +
       "/connections" +
       connection_id,
