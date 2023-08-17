@@ -8,7 +8,11 @@ function AdvancedExample() {
   const [opportunities, setOpportunities] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const opportunitiesPerPage = 5; // Number of opportunities to display per page
+  const opportunitiesPerPage = 5;
+    const [login, setLogin] = useState(false);
+  const login_func = () => {
+    setLogin(!login)
+  }; // Number of opportunities to display per page
 
   useEffect(() => {
     getOpportunity().then((data) => {
@@ -63,7 +67,9 @@ function AdvancedExample() {
     setCurrentPage(1)
   }
 
+
   return (
+    <>
     <div className="opportunity-container">
       <div className="opportunity-header">
         <h2 className="opportunity-title">Opportunities: </h2>
@@ -96,6 +102,7 @@ function AdvancedExample() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

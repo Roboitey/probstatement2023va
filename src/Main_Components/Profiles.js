@@ -15,6 +15,7 @@ import ConnectionList from "../Sub_components/connectionList";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { DeleteUser } from "../services/profileService";
 
 import "../Styles/Profile.css";
 import "../Styles/connectionsList.css";
@@ -42,6 +43,24 @@ function Profiles(Props) {
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
+  function deleteuserfunction(){
+    DeleteUser(userId);
+  }
+ 
+  const applyChanges = () => {
+    UserEdit(userId, about, Experience, Education, Volunteering, Skills);
+    setEditMode(false);
+    setUser({
+      ...user,
+      sections: {
+        about: about,
+        experience: Experience,
+        education: Education,
+        volunteering: Volunteering,
+        skills: Skills,
+      },
+    });
+  };
   useEffect(() => {
     userId =
       !userId && localStorage.getItem("user")
@@ -66,21 +85,10 @@ function Profiles(Props) {
     }
   }, []);
   const applyChanges = () => {
-    UserEdit(
-      userId,
-      about,
-      Experience,
-      Education,
-      Volunteering,
-      Skills,
-      email,
-      fullName
-    );
+    UserEdit(userId, about, Experience, Education, Volunteering, Skills);
     setEditMode(false);
     setUser({
       ...user,
-      email: email,
-      fullName: fullName,
       sections: {
         about: about,
         experience: Experience,
@@ -572,6 +580,7 @@ function Profiles(Props) {
           </div>
         </>
       )}
+      {currentUser && <ConnectionList user_id={currentUser} userId={userId} />}
     </>
   );
 }

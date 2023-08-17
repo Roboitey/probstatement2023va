@@ -21,7 +21,7 @@ function Section_3() {
           <div className={expand ? "rc-lst-e" : "rc-lst-n"}>
             <div className="rc-lst-ul">
               {Rc_lst.map((Item, key) => {
-                return <div key={key}><button onClick={() => {Nav("/opportunity")}}> {Item} </button></div>;
+                return <div key={key}>{Item}</div>;
               })}
             </div>
           </div>
