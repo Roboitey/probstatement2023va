@@ -5,7 +5,7 @@ import { getArticles } from "../services/feedService";
 function Feed() {
   useEffect(() => {
     getArticles().then((data) => {
-      console.log(data.articles);
+      console.log(data.articles); 
     });
   }, []);
 

@@ -40,7 +40,6 @@ function Profiles(Props) {
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
-  useEffect(()=>{console.log(user['fullName'])})
   useEffect(() => {
     userId =
       !userId && localStorage.getItem("user")
@@ -128,7 +127,7 @@ function Profiles(Props) {
           </div>
           <div className="pc-information">
             <div className="pc-info-name">
-              <h1>{user["username"]}</h1>
+              <h1>{user["username"]} <span>&#183;</span> {user["fullName"]}</h1>
             </div>
             <br />
             <div className="pc-info-email_type">
