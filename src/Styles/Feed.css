@@ -41,9 +41,9 @@ html {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  border-radius:10px;
+  border-radius: 10px;
   box-shadow: 3px 5px 10px 1px #000;
-
+  border: 1px solid black;
 }
 .article-cont > .article-top {
   display: flex;
@@ -72,35 +72,94 @@ html {
   align-items: center;
   justify-content: space-between;
   margin-right: 5px;
-  margin-bottom: 5px;
+  margin-bottom: -5px;
 }
 .article-bottom > .article-b-views {
   margin-left: 10px;
   color: black;
   font-size: 20px;
-  height: 30px;
+  height: fit-content;
   display: flex;
   align-items: bottom;
   justify-content: center;
 }
 .article-bottom > .article-b-sessions {
   margin-right: 10px;
-  color: black;
   font-size: 20px;
   height: 30px;
   display: flex;
   align-items: bottom;
   justify-content: center;
 }
-.article-center{
-    width: 100%;
+.article-center {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article-center > .article-center-content {
+  width: 90%;
+  text-align: center;
+  font-size: 19px;
+}
+.alone {
+  position: absolute;
+  top: 175px;
+  right: 25px;
+  width: 400px;
+  height: fit-content;
+}
+.article-title > input {
+  padding: 2px;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  height: 30px;
+}
+.article-center-content > textarea {
+  padding: 2px;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  height: 100px;
+  width: 290px;
+  resize: none;
+  margin-top: 20px;
+}
+.article-center-content > textarea:focus {
+background-color: #EEEEEE;
+  }
+.article-b-views-new{
+    color: black;
+    font-size: 20px;
     height: fit-content;
     display: flex;
+    align-items: bottom;
     justify-content: center;
-    align-items: center;
 }
-.article-center > .article-center-content{
-    width: 90%;
-    text-align: center;
-    font-size: 19px;
+.article-b-views-new > div {
+  position: relative;
+  margin: auto;
+  height: fit-content;
+  width: 410px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
 }
+.article-b-views-new > div > input {
+  padding: 2px;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  height: 30px;
+  width: 100px;
+  margin-left: 2px;
+}
+.article-b-views-new > div > input:focus {
+    background-color: #EEEEEE;
+  }

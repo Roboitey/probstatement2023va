@@ -79,7 +79,7 @@ function AdvancedExample() {
           className="opportunity-search"
           value={searchTerm}
           onChange={searchPaginationItems}
-        />
+        />  
       </div>
       <div className="opportunity-content">
         {currentOpportunities.length === 0 ? (
