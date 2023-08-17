@@ -9,6 +9,7 @@ import Login from "./Main_Components/Login";
 import NotFound from "./Main_Components/NotFound";
 import SignUp from "./Main_Components/signup";
 import Admin from "./Main_Components/admin";
+import Feed from "./Main_Components/feed";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/profile" element={<Profiles />} />
             <Route path="/profile/:userId" element={<Profiles />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/feed" element={<Feed />} />
             </Route>
         </Routes>
       </BrowserRouter>
