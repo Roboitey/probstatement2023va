@@ -14,6 +14,9 @@ function Admin() {
       }
     });
   }, []);
+  useEffect(() => {
+    console.log(info.users.username)
+  })
   return (
     <>
       <div className="admin-container">

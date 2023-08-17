@@ -130,6 +130,7 @@ html {
   height: 100px;
   display: flex;
   flex-direction: column;
+  gap:5px;
   margin-left: 10px;
 }
 .pc-info-email_type > .pc-info-email {
@@ -143,6 +144,14 @@ html {
   height: 30px;
   flex-wrap: wrap;
   gap: 8px;
+}
+.email-input{
+  padding: 2px;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  height: 30px;
 }
 .pc-info-email > div > p {
   font-size: 20px;

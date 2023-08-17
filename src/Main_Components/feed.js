@@ -13,6 +13,7 @@ function Feed() {
   const [numSKillInputFields, setNumSkillInputFields] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [filtered, setFiltered] = useState([]);
+  const [autoWidth, setAutoWidth] = useState(false);
   const keywordsMaxLimit = 10;
 
   useEffect(() => {

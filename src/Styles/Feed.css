@@ -33,18 +33,18 @@ html {
   background-color: #4caf50;
 }
 .articles{
-    width: 70pc;
+    width: 100%;
     height: fit-content;
     margin-bottom: 5px;
     padding-bottom: 5px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 1px;
 }
 .article-cont {
   margin: 10px;
-  width: 350px;
+  width: 99%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -54,6 +54,7 @@ html {
   border-radius: 10px;
   box-shadow: 3px 5px 10px 1px #000;
   background-color: white;
+  overflow: hidden;
 }
 .article-cont > .article-top {
   display: flex;

@@ -147,19 +147,7 @@ function Profiles(Props) {
           <div className="pc-information">
             <div className="pc-info-name">
               <h1>
-                {user["username"]} <span>&#183; </span>
-                {EditMode ? (
-                  <input
-                    className="ac-description-edit-fullName"
-                    onChange={(e) => {
-                      setFullName(e.target.value);
-                    }}
-                    value={fullName}
-                    placeholder="full Name"
-                  />
-                ) : (
-                  user["fullName"]
-                )}
+                {user["username"]}
               </h1>
             </div>
             <br />
@@ -169,7 +157,8 @@ function Profiles(Props) {
                   <p> Email Address: </p>
                   {EditMode ? (
                     <input
-                      value={email        }
+                    className="email-input"
+                      value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
@@ -177,6 +166,23 @@ function Profiles(Props) {
                     ></input>
                   ) : (
                     <strong>{user["email"]}</strong>
+                  )}
+                </div>
+              </div>
+              <div className="pc-info-email">
+                <div>
+                  <p>Full Name: </p>
+                  {EditMode ? (
+                    <input
+                    className="email-input"
+                      value={fullName}
+                      onChange={(e) => {
+                        setFullName(e.target.value);
+                      }}
+                      placeholder="Email Address"
+                    ></input>
+                  ) : (
+                    <strong>{user["fullName"]}</strong>
                   )}
                 </div>
               </div>
