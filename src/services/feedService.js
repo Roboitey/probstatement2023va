@@ -1,6 +1,6 @@
 export function getArticles() {
   const requestOptions = {
-    method: "get",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer 0986ce94-fa35-49b9-a7cc-a631322aa384",

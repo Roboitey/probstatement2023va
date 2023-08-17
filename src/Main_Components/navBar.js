@@ -80,9 +80,7 @@ function NavBar() {
                   </a>
                 </li>
               )}
-               {localStorage.getItem("user") &&
-              JSON.parse(localStorage.getItem("user"))["type"] ===
-                "administrator" && (
+               {localStorage.getItem("user") ? (
                 <li>
                   <a
                     href="/feed"
@@ -93,7 +91,7 @@ function NavBar() {
                     Feed
                   </a>
                 </li>
-              )}
+              ) : null}
           </ul>
         </div>
         <div className={MenuOpen ? "btn-logins" : "btn-logins-off"}>

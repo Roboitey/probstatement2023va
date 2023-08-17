@@ -10,7 +10,7 @@ function Feed() {
   const [userID, setUserID] = useState("");
   const [keywords, setKeywords] = useState([]);
   const [EditMode, setEditMode] = useState(false);
-  const [numSKillInputFields,setNumSkillInputFields] = useState(1);
+  const [numSKillInputFields, setNumSkillInputFields] = useState(1);
   const keywordsMaxLimit = 10;
 
   useEffect(() => {
@@ -26,11 +26,10 @@ function Feed() {
     setEditMode(false);
     CreateArticle(title, contents, userID, keywords);
   };
-  function addKeyword(){
-    if (numSKillInputFields < keywordsMaxLimit){
-      setNumSkillInputFields((prevNum) => prevNum + 1)
-    }
-    else{
+  function addKeyword() {
+    if (numSKillInputFields < keywordsMaxLimit) {
+      setNumSkillInputFields((prevNum) => prevNum + 1);
+    } else {
       console.log("Limit Reached");
       console.log(numSKillInputFields.length);
     }
@@ -38,35 +37,36 @@ function Feed() {
 
   return (
     <>
-      {articles.map((item, key) => {
-        return (
-          <>
-            <div className="article-cont" key={key}>
-              <div className="article-top">
-                <div className="article-title">
-                  <h1>{item.title}</h1>
-                  <h5>Keyword: {item.keywords}</h5>
+      <div className="articles">
+        {articles.map((item, key) => {
+          return (
+            <>
+              <div className="article-cont" key={key}>
+                <div className="article-top">
+                  <div className="article-title">
+                    <h1>{item.title}</h1>
+                  </div>
+                </div>
+                <div className="article-center">
+                  <div className="article-center-content">{item.contents}</div>
+                </div>
+                <div className="article-bottom">
+                  <div className="article-b-views">
+                    <p>
+                      views: <strong>{item.views}</strong>
+                    </p>
+                  </div>
+                  <div className="article-b-sessions">
+                    <p>
+                      sessions: <strong>{item.sessions}</strong>
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="article-center">
-                <div className="article-center-content">{item.contents}</div>
-              </div>
-              <div className="article-bottom">
-                <div className="article-b-views">
-                  <p>
-                    views: <strong>{item.views}</strong>
-                  </p>
-                </div>
-                <div className="article-b-sessions">
-                  <p>
-                    sessions: <strong>{item.sessions}</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </>
-        );
-      })}
+            </>
+          );
+        })}
+      </div>
       {EditMode ? (
         <div className="create-article-btn">
           <button onClick={createArticleFunction}>Add Article</button>
@@ -102,7 +102,6 @@ function Feed() {
                   placeholder="Content"
                   onChange={(e) => {
                     setContents(e.target.value);
-
                   }}
                 />
               </div>
@@ -121,14 +120,11 @@ function Feed() {
                   ))}
                 </div>
               </div>
-              <div className="add-keyword-btn">
-                <button
-                  onClick={addKeyword}
-                  
-                >
-                  Add new Keyword
-                </button>
-              </div>
+            </div>
+            <div className="add-keyword">
+              <button className="add-keyword-btn" onClick={addKeyword}>
+                Add new Keyword
+              </button>
             </div>
           </div>
         </>

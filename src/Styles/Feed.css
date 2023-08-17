@@ -32,6 +32,16 @@ html {
   color: white;
   background-color: #4caf50;
 }
+.articles{
+    width: 70pc;
+    height: fit-content;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1px;
+}
 .article-cont {
   margin: 10px;
   width: 350px;
@@ -44,8 +54,6 @@ html {
   border-radius: 10px;
   box-shadow: 3px 5px 10px 1px #000;
   background-color: white;
-
-  border: 1px solid black;
 }
 .article-cont > .article-top {
   display: flex;
@@ -58,6 +66,8 @@ html {
   height: 100%;
   padding: 2px;
   text-align: center;
+  display: flex;
+  flex-flow: column;
 }
 .article-title > h1 {
   font-size: 40px;
@@ -120,6 +130,9 @@ html {
   transition: all 0.4s ease;
   height: 30px;
 }
+.article-title > input:focus {
+    background-color: #EEEEEE;
+  }
 .article-center-content > textarea {
   padding: 2px;
   outline: none;
@@ -150,6 +163,7 @@ background-color: #EEEEEE;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 5px;
 }
 .article-b-views-new > div > input {
@@ -165,8 +179,6 @@ background-color: #EEEEEE;
 .article-b-views-new > div > input:focus {
     background-color: #EEEEEE;
   }
-
-
 .pagination {
   display: flex;
   justify-content: center;
@@ -195,4 +207,18 @@ background-color: #EEEEEE;
   font-weight: bold;
   background-color: #284dd2;
   color:  white;
+}
+.add-keyword{
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+.add-keyword-btn{
+    background-color: var(--Primary-color);
+    color: white;
+    font-size: 15px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: all 0.4s;
+    width: 160px;
+    height: 95%;
 }

@@ -43,12 +43,9 @@ function Profiles(Props) {
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
-  function deleteuserfunction() {
-    DeleteUser(userId);
-  }
 
   const applyChanges = () => {
-    UserEdit(userId, about, Experience, Education, Volunteering, Skills);
+    UserEdit(userId, about, Experience, Education, Volunteering, Skills, email, fullName);
     setEditMode(false);
     setUser({
       ...user,
@@ -568,9 +565,6 @@ function Profiles(Props) {
           </div>
         </>
       )}
-      <button className="deleteButton" onClick={deleteuserfunction}>
-        Delete My Account?
-      </button>
     </>
   );
 }
