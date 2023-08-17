@@ -24,7 +24,7 @@ function Feed() {
                 </div>
               </div>
               <div className="article-center">
-                <div className="article-center-content">{item.contents} ldekbvde wlkbd3 ewkjfbajlsd ERWI;VL SDL.JKVEF LJV, RL VLERJK FDCVLZ VAERLDJ. LJQERD LAERHD ALERDFH ,DF</div>
+                <div className="article-center-content">{item.contents}</div>
               </div>
               <div className="article-bottom">
                 <div className="article-b-views">

@@ -108,7 +108,6 @@ html {
   align-items: center;
   justify-content: center;
   margin-left: 10px;
-  border: 1px solid black;
 }
 .pc-info-name > h1 {
   text-transform: capitalize;
