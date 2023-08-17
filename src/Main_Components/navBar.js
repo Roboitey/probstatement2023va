@@ -7,13 +7,12 @@ import { Icon } from "@iconify/react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 const ErrorMessage = ({ isOpen, setIsOpen, title, body }) => {
-  const Nav = useNavigate()
+  const Nav = useNavigate();
   const LoggingOut = () => {
-    localStorage.removeItem("user")
-    setIsOpen(false)
-    Nav("/")
-    
-  }
+    localStorage.removeItem("user");
+    setIsOpen(false);
+    Nav("/");
+  };
   if (!isOpen) return null;
   return (
     <Modal show={isOpen} onHide={() => setIsOpen(false)}>
@@ -85,7 +84,7 @@ function NavBar() {
         </div>
         <div className={MenuOpen ? "btn-logins" : "btn-logins-off"}>
           {localStorage.getItem("user") ? (
-            <a >
+            <a>
               <button
                 className="btn-signOut"
                 onClick={() => {
@@ -109,6 +108,7 @@ function NavBar() {
       </nav>
       <button
         className="menu-btn"
+        P
         onClick={() => {
           setMenuOpen(!MenuOpen);
         }}

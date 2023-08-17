@@ -110,12 +110,11 @@ function ConnectionList(Props) {
       <div className="pagination">
         <Pagination>
           <Pagination.Prev onClick={() => paginate(pageNumber - 1)} />
-          {renderPaginationItems()}
+          {renderPaginationItems()}   
           <Pagination.Next onClick={() => paginate(pageNumber + 1)} />
         </Pagination>
       </div>
     </>
   );
 }
-
 export default ConnectionList;
