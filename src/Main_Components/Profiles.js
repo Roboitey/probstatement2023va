@@ -43,14 +43,14 @@ function Profiles(Props) {
   const [currentUser, setCurrentUser] = useState();
 
   const processedEmail = md5(emailAddress.toLowerCase().trim(emailAddress));
-  function deleteuserfunction(){
-    DeleteUser(userId);
-  }
+
   const applyChanges = () => {
     UserEdit(userId, about, Experience, Education, Volunteering, Skills);
     setEditMode(false);
     setUser({
       ...user,
+      email: email,
+      fullName: fullName,
       sections: {
         about: about,
         experience: Experience,
@@ -83,20 +83,6 @@ function Profiles(Props) {
       });
     }
   }, []);
-  const applyChanges = () => {
-    UserEdit(userId, about, Experience, Education, Volunteering, Skills);
-    setEditMode(false);
-    setUser({
-      ...user,
-      sections: {
-        about: about,
-        experience: Experience,
-        education: Education,
-        volunteering: Volunteering,
-        skills: Skills,
-      },
-    });
-  };
 
   return (
     <>
